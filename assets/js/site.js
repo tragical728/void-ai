@@ -66,6 +66,28 @@
     run();
   })();
 
+  /* ================= case cards rise in as they are reached ================= */
+  (function cases(){
+    var cards = document.querySelectorAll('.case');
+    if(!cards.length) return;
+    if(!('IntersectionObserver' in window) || reduce){
+      for(var i=0;i<cards.length;i++) cards[i].classList.add('in');
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var d = parseInt(en.target.getAttribute('data-stagger') || 0, 10);
+        setTimeout(function(){ en.target.classList.add('in'); }, d);
+        io.unobserve(en.target);
+      });
+    }, {threshold:.2, rootMargin:'0px 0px -8% 0px'});
+    for(var j=0;j<cards.length;j++){
+      cards[j].setAttribute('data-stagger', (j % 3) * 110);
+      io.observe(cards[j]);
+    }
+  })();
+
   /* ================= footer reveal ================= */
   (function reveal(){
     var items = document.querySelectorAll('.reveal');
