@@ -9,6 +9,15 @@ window.VOID = window.VOID || {};
   var mouse = {x:-2000,y:-2000};
   var THEME = 'dark';
 
+  /* Fill rate, not draw calls, is what stalls weak hardware: both canvases are
+     full-screen and repainted every frame. Cap the backing-store ratio and keep
+     a tier the render loop can lower on its own if frames start running long. */
+  var CORES = navigator.hardwareConcurrency || 4;
+  var SMALL = Math.min(screen.width, screen.height) < 820;
+  var DPR_CAP = (CORES <= 4 || SMALL) ? 1.25 : 1.5;
+  var PERF = { tier: 1 };
+  function ratio(){ return Math.min(window.devicePixelRatio || 1, DPR_CAP); }
+
   function store(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
   function recall(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
   /* ================= theme ================= */
@@ -175,12 +184,12 @@ window.VOID = window.VOID || {};
       ctx.fillRect(0,0,w,h);
     }
     function init(){
-      dpr = Math.min(window.devicePixelRatio||1, 2);
+      dpr = ratio();
       w = window.innerWidth; h = window.innerHeight;
       c.width = w*dpr; c.height = h*dpr;
       ctx.setTransform(dpr,0,0,dpr,0,0);
       ground();
-      var n = w < 700 ? Math.round(COUNT*.45) : COUNT;
+      var n = Math.round(COUNT * (w < 700 ? .40 : w < 1100 ? .70 : 1) * PERF.tier);
       parts = []; held = []; ej = 0;
       MAXHELD = Math.round(n*0.3);
       for(var i=0;i<n;i++) parts.push(new P());
@@ -220,9 +229,12 @@ window.VOID = window.VOID || {};
 
       /* if a machine cannot hold the frame, quietly thin the field instead of stuttering */
       slow = dt > 0.028 ? slow+1 : 0;
-      if(slow > 45 && parts.length > 260){
-        parts.splice(0, Math.round(parts.length*0.18));
-        MAXHELD = Math.round(parts.length*0.3);
+      if(slow > 45 && PERF.tier > 0.45){
+        PERF.tier = PERF.tier > 0.75 ? 0.7 : 0.45;   /* the hole thins out too */
+        if(parts.length > 240){
+          parts.splice(0, Math.round(parts.length*0.22));
+          MAXHELD = Math.round(parts.length*0.3);
+        }
         slow = 0;
       }
       raf = requestAnimationFrame(frame);
@@ -245,7 +257,7 @@ window.VOID = window.VOID || {};
     if(!c) return;
     var ctx = c.getContext('2d');
     var w=0,h=0,dpr=1,R=0,t=0;
-    var NR=34, NS=7, ND=28, NU=16, NK=22;
+    var NR=28, NS=6, ND=22, NU=14, NK=18;
     var cache=null, built='';
     /* what is drawn now eases toward what the scroll asks for — no snapping */
     var cur = {x:0,y:0,rot:-0.1,sx:1,sy:1,op:1,R:1}, tgt = null, warm=false;
@@ -290,7 +302,7 @@ window.VOID = window.VOID || {};
           lw:k<0.15?1.8:1.2, k:k}); }
     }
     function size(){
-      dpr = Math.min(window.devicePixelRatio||1, 2);
+      dpr = ratio();
       w = window.innerWidth; h = window.innerHeight;
       c.width = w*dpr; c.height = h*dpr;
       ctx.setTransform(dpr,0,0,dpr,0,0);
@@ -300,7 +312,8 @@ window.VOID = window.VOID || {};
     }
 
     function bands(list, time, front){
-      for(var i=0;i<list.length;i++){
+      var step = PERF.tier < 0.8 ? 2 : 1;
+      for(var i=0;i<list.length;i+=step){
         var b = list[i];
         ctx.globalAlpha = Math.min(1, cur.op * b.a * pal().gain * (0.88 + 0.12*Math.sin(time*0.5 + i*0.55)));
         ctx.strokeStyle = b.g; ctx.lineWidth = b.lw;
@@ -314,8 +327,10 @@ window.VOID = window.VOID || {};
     }
     /* short arcs sliding along each ring — inner ones orbit faster */
     function streaks(time, front){
+      if(PERF.tier < 0.6) return;      /* the sliding filaments are the first thing to go */
       var base = front ? 0 : Math.PI;
-      for(var i=0;i<NK;i++){
+      var kstep = PERF.tier < 0.8 ? 2 : 1;
+      for(var i=0;i<NK;i+=kstep){
         var k=i/(NK-1), rx=R*(1.12+k*2.66), ry=R*(0.465+k*0.165);
         var sp = 1.15/Math.pow(1.12+k*2.66, 0.85);
         var a0 = base + ((time*sp + i*1.7) % Math.PI);
@@ -392,8 +407,9 @@ window.VOID = window.VOID || {};
       ctx.save();
       ctx.scale(1, 0.40);
 
-      for(var i=0;i<20;i++){                       /* dust lanes */
-        var k = i/19, r = R*(0.6 + k*3.3);
+      var lanes = PERF.tier < 0.8 ? 9 : 14;        /* dust lanes */
+      for(var i=0;i<lanes;i++){
+        var k = i/(lanes-1), r = R*(0.6 + k*3.3);
         ctx.strokeStyle = 'rgba('+p.warm+','+(((1-k)*0.17+0.028)*o).toFixed(3)+')';
         ctx.lineWidth = 0.9 + (1-k)*1.6;
         ctx.beginPath(); ctx.arc(0,0,r,0,TAU); ctx.stroke();
@@ -401,18 +417,19 @@ window.VOID = window.VOID || {};
 
       var ARMS = 5;
       for(var a=0;a<ARMS;a++){
-        for(var f=0;f<4;f++){                      /* filaments inside each arm */
-          var off = (f-1.5)*0.085;
+        var fil = PERF.tier < 0.8 ? 2 : 3;         /* filaments inside each arm */
+        for(var f=0;f<fil;f++){
+          var off = (f-(fil-1)/2)*0.10;
           var base = a*TAU/ARMS + off + ph;
           ctx.beginPath();
           var started = false;
-          for(var th=0.15; th<5.4; th+=0.07){
+          for(var th=0.15; th<5.4; th+=(PERF.tier < 0.8 ? 0.16 : 0.10)){
             var rr = R*0.52*Math.exp(0.295*th);
             if(rr > R*3.75) break;
             var x = Math.cos(th+base)*rr, y = Math.sin(th+base)*rr;
             if(!started){ ctx.moveTo(x,y); started = true; } else ctx.lineTo(x,y);
           }
-          ctx.strokeStyle = 'rgba('+p.hot+','+((0.32 - f*0.05)*o).toFixed(3)+')';
+          ctx.strokeStyle = 'rgba('+p.hot+','+((0.34 - f*0.05)*o).toFixed(3)+')';
           ctx.lineWidth = 1.9 - f*0.3;
           ctx.stroke();
         }
@@ -437,9 +454,14 @@ window.VOID = window.VOID || {};
       ctx.globalAlpha = 1;
     }
 
+    var blank = false;
     function draw(time){
+      if(cur.op < 0.02){                 /* nothing to show: clear once, then idle */
+        if(!blank){ ctx.clearRect(0,0,w,h); blank = true; }
+        return;
+      }
+      blank = false;
       ctx.clearRect(0,0,w,h);
-      if(cur.op < 0.02) return;
       if(built !== THEME) build();
       warm = (THEME === 'dark');
       var p = pal(), ej = HOLE.ej || 0;
@@ -480,7 +502,8 @@ window.VOID = window.VOID || {};
       bands(cache.ring, time, false);
       bands(cache.spine, time, false);
       streaks(time, false);
-      for(var i=0;i<ND;i++){
+      var dstep = PERF.tier < 0.8 ? 2 : 1;
+      for(var i=0;i<ND;i+=dstep){
         var d = cache.dome[i];
         ctx.globalAlpha = Math.min(1, cur.op * d.a * pal().gain);
         ctx.strokeStyle = d.g; ctx.lineWidth = d.lw;
@@ -512,7 +535,8 @@ window.VOID = window.VOID || {};
       ctx.shadowBlur = 0;
 
       ctx.save(); ctx.scale(1,0.86);
-      for(var j=0;j<NU;j++){
+      var ustep = PERF.tier < 0.8 ? 2 : 1;
+      for(var j=0;j<NU;j+=ustep){
         var u = cache.under[j];
         ctx.globalAlpha = Math.min(1, cur.op * u.a * pal().gain);
         ctx.strokeStyle = u.g; ctx.lineWidth = u.lw;
