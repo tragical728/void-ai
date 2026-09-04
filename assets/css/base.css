@@ -48,8 +48,8 @@ section{position:relative;padding-block:clamp(68px,9vw,132px);
   border-top:1px solid var(--line);scroll-margin-top:72px}
 /* every section below the hero carries its own background: moving particles
    behind body copy is what made the page hard to read */
-main > section:not(.hero){background:rgba(var(--scrim),.86)}
-main > section:nth-of-type(even){background:rgba(var(--scrim2),.88)}
+main > section:not(.hero){background:rgba(var(--scrim),.76)}
+main > section:nth-of-type(even){background:rgba(var(--scrim2),.78)}
 /* let the ground fall away under the last section so the object can rise into it */
 main > section#contact{background:linear-gradient(180deg,rgba(var(--scrim),.82) 0%,
   rgba(var(--scrim),.82) 55%,rgba(var(--scrim),.35) 100%)}

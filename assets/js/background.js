@@ -589,7 +589,7 @@ window.VOID = window.VOID || {};
       /* sections below the hero carry their own ground now, so the object stays
          centred instead of sliding out of the way */
       var baseY  = h*(0.5 + 0.05*e + 0.012*drift*e);
-      var baseOp = q < 1 ? 1 - 0.86*e : 0.14;
+      var baseOp = q < 1 ? 1 - 0.72*e : 0.28;
       var baseRt = -0.10 - 0.10*e + 0.04*drift*e;
 
       /* grown so the crown of the arc clears the footer's empty band while the
