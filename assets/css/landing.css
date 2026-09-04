@@ -110,3 +110,15 @@ summary:hover{color:var(--accent)}
 summary .plus{color:var(--faint);font-family:"IBM Plex Mono",Menlo,monospace;font-size:1.1rem;transition:transform .3s}
 details[open] summary .plus{transform:rotate(45deg)}
 details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem}
+
+/* plain words, so the offer is legible before anyone reads a sentence */
+.hero-tags{list-style:none;margin:4px 0 0;padding:0;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.hero-tags li{font-family:"IBM Plex Mono",Menlo,monospace;font-size:.7rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;padding:7px 14px;
+  background:rgba(var(--scrim),.4);backdrop-filter:blur(4px)}
+@media(max-width:560px){
+  .hero-tags{gap:6px}
+  .hero-tags li{font-size:.62rem;letter-spacing:.1em;padding:6px 11px}
+}

@@ -3,7 +3,7 @@
 window.I18N = {};
 window.I18N.en = {
 nav1:"What we build",nav2:"The leak",nav3:"Cases",nav4:"Process",nav5:"The maths",navcta:"Contact",
-heroEyebrow:"AI agents · automation · marketing",
+heroEyebrow:"AUTOMATION · MARKETING · DEVELOPMENT",
 heroTitle:"28 days<br>to the first result",
 heroLead:"AI agents for daily operations, Telegram bots and mini-apps, landing pages built or repaired, and the lead strategy behind them. Fixed scope, fixed price, and a working system in your hands on day 28.",
 heroNote:"Shadow mode first. You keep the build.",
@@ -79,7 +79,7 @@ footRights:"All rights reserved."
 
 window.I18N.ru = {
 nav1:"Что мы делаем",nav2:"Утечка",nav3:"Кейсы",nav4:"Процесс",nav5:"Расчёт",navcta:"Связаться",
-heroEyebrow:"ИИ-агенты · автоматизация · маркетинг",
+heroEyebrow:"АВТОМАТИЗАЦИЯ · МАРКЕТИНГ · РАЗРАБОТКА",
 heroTitle:"28 дней<br>до первого результата",
 heroLead:"ИИ-агенты для повседневных задач, боты и мини-аппы Telegram, лендинги под ключ и починка существующих, стратегия привлечения клиентов. Фиксированный объём, фиксированная цена, работающая система у вас на 28-й день.",
 heroNote:"Сначала теневой режим. Сборка остаётся у вас.",
@@ -155,7 +155,7 @@ footRights:"Все права защищены."
 
 window.I18N.es = {
 nav1:"Qué construimos",nav2:"La fuga",nav3:"Casos",nav4:"Proceso",nav5:"Los números",navcta:"Contacto",
-heroEyebrow:"Agentes de IA · automatización · marketing",
+heroEyebrow:"AUTOMATIZACIÓN · MARKETING · DESARROLLO",
 heroTitle:"28 días<br>hasta el primer resultado",
 heroLead:"Agentes de IA para el día a día, bots y mini-apps de Telegram, landing pages nuevas o reparadas, y la estrategia de captación que hay detrás. Alcance cerrado, precio cerrado y un sistema funcionando en tus manos el día 28.",
 heroNote:"Primero en modo sombra. La construcción es tuya.",
@@ -231,7 +231,7 @@ footRights:"Todos los derechos reservados."
 
 window.I18N.de = {
 nav1:"Was wir bauen",nav2:"Das Leck",nav3:"Fälle",nav4:"Ablauf",nav5:"Die Rechnung",navcta:"Kontakt",
-heroEyebrow:"KI-Agenten · Automatisierung · Marketing",
+heroEyebrow:"AUTOMATISIERUNG · MARKETING · ENTWICKLUNG",
 heroTitle:"28 Tage<br>bis zum ersten Ergebnis",
 heroLead:"KI-Agenten für den Alltagsbetrieb, Telegram-Bots und Mini-Apps, Landingpages neu gebaut oder repariert, dazu die Lead-Strategie dahinter. Fester Umfang, fester Preis und ein laufendes System in Ihren Händen am Tag 28.",
 heroNote:"Zuerst im Schattenbetrieb. Der Bau gehört Ihnen.",
@@ -307,7 +307,7 @@ footRights:"Alle Rechte vorbehalten."
 
 window.I18N.zh = {
 nav1:"我们做什么",nav2:"流失",nav3:"案例",nav4:"流程",nav5:"算一笔账",navcta:"联系我们",
-heroEyebrow:"AI 智能体 · 自动化 · 市场增长",
+heroEyebrow:"自动化 · 市场增长 · 开发",
 heroTitle:"28 天<br>见到第一个结果",
 heroLead:"面向日常业务的 AI 智能体、Telegram 机器人与小程序、新建或修复落地页，以及背后的获客策略。范围固定，价格固定，第 28 天交到你手上的是一套跑起来的系统。",
 heroNote:"先跑影子模式。成果归你所有。",
@@ -544,4 +544,114 @@ ctOr:"或直接联系我们",
 ctThanksTitle:"留言已收到。",
 ctThanksLead:"我们会在 24 小时内回复，通常更快。若事情紧急，请在 Telegram 上找我们。",
 ctErr:"请填写必填项。"
+});
+
+Object.assign(window.I18N.en, {
+ht1:"AI agents",
+ht2:"Telegram bots",
+ht3:"Mini-apps",
+ht4:"Landing pages",
+ht5:"Lead generation",
+ctS1:"AI agents / automation",
+ctS2:"Telegram bot",
+ctS3:"Telegram mini-app",
+ctS4:"Landing page — new",
+ctS5:"Landing page — audit and repair",
+ctS6:"Multi-page website",
+ctS7:"Lead strategy",
+ctS8:"Paid acquisition",
+ctS9:"Email and messenger sequences",
+ctS10:"CRM setup and integration",
+ctS11:"Support chatbot",
+ctS12:"Content and SEO",
+ctS13:"Analytics and reporting",
+ctS14:"Something else"
+});
+
+Object.assign(window.I18N.ru, {
+ht1:"ИИ-агенты",
+ht2:"Боты Telegram",
+ht3:"Мини-аппы",
+ht4:"Лендинги",
+ht5:"Привлечение клиентов",
+ctS1:"ИИ-агенты и автоматизация",
+ctS2:"Бот Telegram",
+ctS3:"Мини-апп Telegram",
+ctS4:"Лендинг — новый",
+ctS5:"Лендинг — аудит и починка",
+ctS6:"Многостраничный сайт",
+ctS7:"Стратегия привлечения",
+ctS8:"Платный трафик",
+ctS9:"Цепочки в почте и мессенджерах",
+ctS10:"Настройка и интеграция CRM",
+ctS11:"Чат-бот поддержки",
+ctS12:"Контент и SEO",
+ctS13:"Аналитика и отчётность",
+ctS14:"Другое"
+});
+
+Object.assign(window.I18N.es, {
+ht1:"Agentes de IA",
+ht2:"Bots de Telegram",
+ht3:"Mini-apps",
+ht4:"Landing pages",
+ht5:"Captación",
+ctS1:"Agentes de IA / automatización",
+ctS2:"Bot de Telegram",
+ctS3:"Mini-app de Telegram",
+ctS4:"Landing page — nueva",
+ctS5:"Landing page — auditoría y reparación",
+ctS6:"Sitio de varias páginas",
+ctS7:"Estrategia de captación",
+ctS8:"Tráfico de pago",
+ctS9:"Secuencias de correo y mensajería",
+ctS10:"Configuración e integración de CRM",
+ctS11:"Chatbot de soporte",
+ctS12:"Contenido y SEO",
+ctS13:"Analítica e informes",
+ctS14:"Otra cosa"
+});
+
+Object.assign(window.I18N.de, {
+ht1:"KI-Agenten",
+ht2:"Telegram-Bots",
+ht3:"Mini-Apps",
+ht4:"Landingpages",
+ht5:"Leadgenerierung",
+ctS1:"KI-Agenten / Automatisierung",
+ctS2:"Telegram-Bot",
+ctS3:"Telegram-Mini-App",
+ctS4:"Landingpage — neu",
+ctS5:"Landingpage — Analyse und Reparatur",
+ctS6:"Mehrseitige Website",
+ctS7:"Lead-Strategie",
+ctS8:"Bezahlte Akquise",
+ctS9:"E-Mail- und Messenger-Strecken",
+ctS10:"CRM-Einrichtung und Anbindung",
+ctS11:"Support-Chatbot",
+ctS12:"Inhalte und SEO",
+ctS13:"Analytics und Reporting",
+ctS14:"Etwas anderes"
+});
+
+Object.assign(window.I18N.zh, {
+ht1:"AI 智能体",
+ht2:"Telegram 机器人",
+ht3:"小程序",
+ht4:"落地页",
+ht5:"获客",
+ctS1:"AI 智能体 / 自动化",
+ctS2:"Telegram 机器人",
+ctS3:"Telegram 小程序",
+ctS4:"落地页 — 新建",
+ctS5:"落地页 — 诊断与修复",
+ctS6:"多页网站",
+ctS7:"获客策略",
+ctS8:"付费投放",
+ctS9:"邮件与即时通讯序列",
+ctS10:"CRM 搭建与打通",
+ctS11:"客服机器人",
+ctS12:"内容与 SEO",
+ctS13:"数据分析与报表",
+ctS14:"其他"
 });

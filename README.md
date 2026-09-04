@@ -47,7 +47,7 @@ Replace the placeholder domain `void28.ai` with the real one in:
 - `sitemap.xml` — both `<loc>` entries
 - the JSON-LD block at the bottom of `index.html`'s `<head>`
 
-And the placeholder address `hello@void28.ai` in `index.html` and `contact.html`.
+And the placeholder address `bensteeler82@gmail.com` in `index.html` and `contact.html`.
 
 ## The form
 
