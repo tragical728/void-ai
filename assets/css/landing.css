@@ -328,7 +328,7 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
    their contents: an open card only pushes what is under it in its own. */
 .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
 .case-col{display:flex;flex-direction:column;gap:14px}
-.case{border:1px solid var(--line);background:var(--panel);
+.case{border:1px solid var(--line);
   opacity:0;transform:translateY(16px);
   transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1),border-color .3s ease}
 .case.in{opacity:1;transform:none}
@@ -345,3 +345,31 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
   .cases{grid-template-columns:1fr;gap:14px}
   .case-col{display:contents}          /* one flat column, cards keep DOM order */
 }
+
+/* ---------- proof strip ----------
+   Kept at the end of the file on purpose: twice now an edit that replaced
+   everything from a marker "to end of file" has taken these rules with it. */
+.proof{padding-block:clamp(24px,3vw,38px);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2.4vw,34px)}
+.proof-item{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center}
+.proof-item b{font-family:"Onest",Helvetica,sans-serif;font-weight:300;
+  font-size:clamp(1.5rem,3vw,2.3rem);line-height:1;letter-spacing:-.03em;
+  color:var(--accent);font-variant-numeric:tabular-nums}
+.proof-item span{font-size:.84rem;color:var(--muted);line-height:1.4}
+@media(max-width:760px){
+  .proof-grid{grid-template-columns:repeat(2,1fr);gap:20px 14px}
+  .proof-item{align-items:flex-start;text-align:left}
+}
+
+/* ---------- mid-page call to action ---------- */
+.midcta{padding-block:clamp(40px,5vw,66px)}
+.midcta-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:clamp(18px,3.4vw,44px)}
+.midcta h2{font-size:clamp(1.5rem,2.8vw,2.1rem);margin-bottom:8px}
+.midcta .lead{max-width:46ch;font-size:1rem}
+
+/* ---------- case cards sit on the page, not on a grey plate ---------- */
+.case{background:transparent}
+.case summary:hover{background:rgba(var(--scrim2),.42)}
+.case details[open] > summary{background:rgba(var(--scrim2),.28)}
