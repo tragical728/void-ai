@@ -268,9 +268,9 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
   margin:clamp(30px,4vw,52px) 0 18px;padding-top:22px;
   border-top:1px solid var(--line-strong)}
 .grp:first-of-type{margin-top:0;padding-top:0;border-top:none}
-.grp-n{grid-row:1 / span 2;font-family:"IBM Plex Mono",Menlo,monospace;
-  font-size:.7rem;letter-spacing:.16em;color:var(--accent);
-  padding:5px 9px;border:1px solid var(--accent);border-radius:3px;align-self:start}
+.grp-n{grid-row:1 / span 2;align-self:start;margin-top:9px;
+  width:16px;height:16px;border-radius:3px;background:var(--accent);
+  font-size:0;line-height:0;overflow:hidden}
 .grp h3{margin:0;font-family:"Onest",Helvetica,sans-serif;
   font-size:clamp(1.35rem,2.4vw,1.9rem);font-weight:300;letter-spacing:-.025em;
   color:var(--text)}
@@ -278,7 +278,7 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
 .rows + .grp{margin-top:clamp(44px,5.5vw,72px)}
 @media(max-width:560px){
   .grp{column-gap:12px}
-  .grp-n{padding:4px 7px;font-size:.64rem}
+  .grp-n{width:13px;height:13px;margin-top:7px}
 }
 /* numbering restarts inside each group so the list reads as two sets */
 .rows{counter-reset:svc}
@@ -289,7 +289,8 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
    be scanned without reading six paragraphs. */
 .case{padding:0}
 .case details{display:flex;flex-direction:column;height:100%}
-.case summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:14px;
+.case summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;
+  align-items:stretch;justify-content:flex-start;gap:14px;
   padding:clamp(24px,3vw,34px);transition:background .25s ease}
 .case summary::-webkit-details-marker{display:none}
 .case summary:hover{background:rgba(var(--scrim2),.5)}
