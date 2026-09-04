@@ -261,13 +261,25 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
 }
 
 /* ---------- one services section, two named groups ---------- */
-.grp{margin:clamp(26px,3.6vw,44px) 0 4px;font-size:1rem;font-weight:400;
-  letter-spacing:-.005em;color:var(--text);
-  padding-bottom:10px}
-.grp:first-of-type{margin-top:0}
-.rows + .grp{margin-top:clamp(34px,4.4vw,56px)}
-.grp::before{content:"";display:block;width:26px;height:2px;background:var(--accent);
-  margin-bottom:12px;border-radius:2px}
+/* a group heading has to break the rhythm of the rows, otherwise it reads as
+   just another line of text: number, rule, name at display size, note under it */
+.grp{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;
+  column-gap:16px;align-items:baseline;
+  margin:clamp(30px,4vw,52px) 0 18px;padding-top:22px;
+  border-top:1px solid var(--line-strong)}
+.grp:first-of-type{margin-top:0;padding-top:0;border-top:none}
+.grp-n{grid-row:1 / span 2;font-family:"IBM Plex Mono",Menlo,monospace;
+  font-size:.7rem;letter-spacing:.16em;color:var(--accent);
+  padding:5px 9px;border:1px solid var(--accent);border-radius:3px;align-self:start}
+.grp h3{margin:0;font-family:"Onest",Helvetica,sans-serif;
+  font-size:clamp(1.35rem,2.4vw,1.9rem);font-weight:300;letter-spacing:-.025em;
+  color:var(--text)}
+.grp p{grid-column:2;margin-top:5px;color:var(--muted);font-size:.95rem}
+.rows + .grp{margin-top:clamp(44px,5.5vw,72px)}
+@media(max-width:560px){
+  .grp{column-gap:12px}
+  .grp-n{padding:4px 7px;font-size:.64rem}
+}
 /* numbering restarts inside each group so the list reads as two sets */
 .rows{counter-reset:svc}
 

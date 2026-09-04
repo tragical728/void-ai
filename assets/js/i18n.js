@@ -1515,3 +1515,103 @@ Object.assign(window.I18N.es, {caseMore:"Ver el detalle"});
 Object.assign(window.I18N.de, {caseMore:"Details ansehen"});
 
 Object.assign(window.I18N.zh, {caseMore:"查看详情"});
+
+/* tightened copy; group headings split into name and note */
+Object.assign(window.I18N.ru, {
+grp1:"Автоматизация",
+grp1s:"Агент делает рутину вместо сотрудников",
+grp2:"Привлечение",
+grp2s:"Приводим клиентов и делаем страницы",
+exLead:"Программа, которая работает внутри ваших же сервисов. Ставить ничего не нужно. Она читает входящее, решает по вашим правилам и делает действие. Спорное отдаёт человеку.",
+exNote:"Проще говоря: сотрудник, который работает круглосуточно и не увольняется. Только это программа, и она встраивается в вашу работу за 28 дней.",
+workLead:"Девять услуг. Каждую можно заказать отдельно.",
+lkLead:"Заявка, пролежавшая до утра, почти всегда уходит конкуренту. В отчётах этого не видно: несостоявшиеся сделки никто не считает.",
+lkAfter:"Наши агенты отвечают меньше чем за минуту в любое время и напоминают о себе, пока клиент не ответит. Тот же трафик и бюджет, больше сделок.",
+prLead:"Сначала считаем, потом делаем. Агент не пишет клиентам, пока неделю не проработает вхолостую.",
+csLead:"Шесть проектов. Под каждым указано, что поменяли и как считали цифру.",
+xLead:"Тридцать минут без презентаций. Назовите процесс, который съедает больше всего времени, и мы скажем, можно ли его отдать агенту и сколько это будет стоить.",
+fq1a:"Он не угадывает, а передаёт человеку. У каждого агента прописано, что он решает сам. Первую неделю работает вхолостую, пока вы не убедитесь в качестве. Есть кнопка, которая останавливает его в один клик.",
+fq2a:"В ваших аккаунтах. Мы работаем внутри ваших сервисов, в нужной вам стране. Данные не используются для обучения. У каждого агента только нужные ему доступы.",
+fq3a:"Цену называем после первой недели, когда понятен объём. Дальше ежемесячная плата за работу и доработки. Обычно окупается за три месяца. Если по расчётам не выходит, говорим прямо и не берёмся.",
+heroLead:"ИИ-агенты, боты и мини-аппы в Telegram, лендинги и реклама. Берём задачу целиком. Фиксированная цена, работающая система на 28-й день."
+});
+
+/* tightened copy; group headings split into name and note */
+Object.assign(window.I18N.en, {
+grp1:"Automation",
+grp1s:"The agent does the routine instead of your staff",
+grp2:"Acquisition",
+grp2s:"We bring customers in and build the pages",
+exLead:"Software that runs inside the services you already use. Nothing to install. It reads what comes in, decides by your rules and carries out the action. Unclear cases go to a person.",
+exNote:"Put simply: an employee who works around the clock and never resigns. Except it is software, and it fits into your work in 28 days.",
+workLead:"Nine services. Each can be ordered on its own.",
+lkLead:"An enquiry left until morning almost always goes to a competitor. The reports never show it: nobody counts the deals that did not happen.",
+lkAfter:"Our agents answer in under a minute at any hour and keep following up until the customer replies. Same traffic, same budget, more deals.",
+prLead:"We measure first and build second. No agent writes to customers until it has run a week on the side.",
+csLead:"Six projects. Each says what changed and how the figure was counted.",
+xLead:"Thirty minutes, no slides. Name the process that eats the most time and we will say whether an agent can take it and what it would cost.",
+fq1a:"It does not guess, it hands the case to a person. Every agent has written rules for what it may decide alone. For the first week it runs on the side until you are happy with the quality. A button stops it in one click.",
+fq2a:"In your own accounts. We work inside your services, in the country you require. Your data is not used for training. Each agent gets only the access its job needs.",
+fq3a:"We quote after the first week, once the scope is clear. Then a monthly fee for running and adjusting it. Most pay for themselves in three months. If the numbers do not add up, we say so and turn it down.",
+heroLead:"AI agents, Telegram bots and mini-apps, landing pages and ads. We take the whole job. Fixed price, a working system on day 28."
+});
+
+/* tightened copy; group headings split into name and note */
+Object.assign(window.I18N.es, {
+grp1:"Automatización",
+grp1s:"El agente hace la rutina en lugar de tu equipo",
+grp2:"Captación",
+grp2s:"Traemos clientes y construimos las páginas",
+exLead:"Un programa que funciona dentro de los servicios que ya usas. Nada que instalar. Lee lo que entra, decide según tus reglas y ejecuta la acción. Lo dudoso pasa a una persona.",
+exNote:"Dicho simple: un empleado que trabaja las 24 horas y no se va. Solo que es software, y encaja en tu trabajo en 28 días.",
+workLead:"Nueve servicios. Cada uno se contrata por separado.",
+lkLead:"Una consulta que espera a la mañana casi siempre acaba en la competencia. No sale en los informes: nadie cuenta las ventas que no ocurrieron.",
+lkAfter:"Nuestros agentes responden en menos de un minuto a cualquier hora y siguen insistiendo hasta que el cliente contesta. Mismo tráfico, mismo presupuesto, más ventas.",
+prLead:"Primero medimos, después construimos. Ningún agente escribe a clientes hasta funcionar una semana en paralelo.",
+csLead:"Seis proyectos. Cada uno indica qué cambiamos y cómo se contó la cifra.",
+xLead:"Treinta minutos, sin presentaciones. Di qué proceso se lleva más tiempo y te diremos si un agente puede encargarse y cuánto costaría.",
+fq1a:"No adivina: pasa el caso a una persona. Cada agente tiene por escrito qué puede decidir solo. La primera semana funciona en paralelo hasta que estés conforme. Un botón lo detiene en un clic.",
+fq2a:"En tus cuentas. Trabajamos dentro de tus servicios, en el país que necesites. Tus datos no entrenan nada. Cada agente recibe solo los accesos de su tarea.",
+fq3a:"Damos precio tras la primera semana, cuando el alcance está claro. Después una cuota mensual por operarlo y ajustarlo. La mayoría se paga en tres meses. Si no salen las cuentas, lo decimos y no lo tomamos.",
+heroLead:"Agentes de IA, bots y mini-apps de Telegram, landing pages y publicidad. Nos hacemos cargo del trabajo entero. Precio cerrado, sistema funcionando el día 28."
+});
+
+/* tightened copy; group headings split into name and note */
+Object.assign(window.I18N.de, {
+grp1:"Automatisierung",
+grp1s:"Der Agent macht die Routine statt Ihrer Leute",
+grp2:"Akquise",
+grp2s:"Wir bringen Kunden und bauen die Seiten",
+exLead:"Ein Programm, das in Ihren bestehenden Diensten läuft. Nichts zu installieren. Es liest, was hereinkommt, entscheidet nach Ihren Regeln und führt die Aktion aus. Unklares geht an einen Menschen.",
+exNote:"Einfach gesagt: ein Mitarbeiter, der rund um die Uhr arbeitet und nicht kündigt. Nur ist es Software, und sie fügt sich in 28 Tagen in Ihre Arbeit ein.",
+workLead:"Neun Leistungen. Jede ist einzeln buchbar.",
+lkLead:"Eine Anfrage, die bis zum Morgen liegen bleibt, geht fast immer an den Wettbewerb. In den Berichten steht das nie: verlorene Geschäfte zählt niemand.",
+lkAfter:"Unsere Agenten antworten in unter einer Minute zu jeder Uhrzeit und fassen nach, bis der Kunde reagiert. Gleicher Traffic, gleiches Budget, mehr Abschlüsse.",
+prLead:"Erst messen, dann bauen. Kein Agent schreibt Kunden an, bevor er eine Woche nebenher gelaufen ist.",
+csLead:"Sechs Projekte. Bei jedem steht, was geändert und wie gezählt wurde.",
+xLead:"Dreißig Minuten, keine Folien. Nennen Sie den Prozess, der am meisten Zeit frisst, und wir sagen, ob ein Agent ihn übernehmen kann und was das kostet.",
+fq1a:"Er rät nicht, er gibt den Fall an einen Menschen. Für jeden Agenten steht schriftlich fest, was er allein entscheiden darf. In der ersten Woche läuft er nebenher, bis Sie zufrieden sind. Ein Knopf stoppt ihn sofort.",
+fq2a:"In Ihren Konten. Wir arbeiten in Ihren Diensten, in dem Land, das Sie verlangen. Ihre Daten trainieren nichts. Jeder Agent bekommt nur die Zugriffe seiner Aufgabe.",
+fq3a:"Den Preis nennen wir nach der ersten Woche, wenn der Umfang klar ist. Danach eine Monatsgebühr für Betrieb und Anpassung. Die meisten tragen sich in drei Monaten. Geht die Rechnung nicht auf, sagen wir das und nehmen es nicht an.",
+heroLead:"KI-Agenten, Telegram-Bots und Mini-Apps, Landingpages und Werbung. Wir übernehmen die ganze Aufgabe. Fester Preis, laufendes System am Tag 28."
+});
+
+/* tightened copy; group headings split into name and note */
+Object.assign(window.I18N.zh, {
+grp1:"自动化",
+grp1s:"智能体替员工干重复的活儿",
+grp2:"获客",
+grp2s:"带来客户，也做承接客户的页面",
+exLead:"一段跑在你现有工具里的软件。不用安装。它读进来的消息，按你的规则判断，然后执行。拿不准的交给人。",
+exNote:"说白了：一个全天候上班、不会离职的员工。只不过它是软件，28 天融进你的工作。",
+workLead:"九项服务，都可以单独下单。",
+lkLead:"过夜才处理的咨询，几乎都被同行接走。报表上看不见：没做成的生意没人统计。",
+lkAfter:"我们的智能体任何时段一分钟内回复，并持续跟进到客户回应。同样的流量和预算，成交更多。",
+prLead:"先测量，后动手。智能体在旁边跑满一周之前，不会给客户发消息。",
+csLead:"六个项目。每个都写明改了什么、数字怎么算的。",
+xLead:"三十分钟，不用看材料。说出最占时间的流程，我们会告诉你能不能交给智能体，以及多少钱。",
+fq1a:"它不硬猜，会转交给人。每个智能体都写明哪些能自己决定。头一周在旁边跑，直到你认可质量。有个按钮一键停止。",
+fq2a:"存在你的账户里。我们在你的服务里干活，用你要求的地区。数据不用于训练。每个智能体只拿到自己任务需要的权限。",
+fq3a:"第一周摸清范围后报价，之后按月付运行和调整费用。多数三个月回本。账算不过来，我们直说，也不接。",
+heroLead:"AI 智能体、Telegram 机器人与小程序、落地页和广告投放。整件事我们全包。价格固定，第 28 天交付能跑的系统。"
+});
