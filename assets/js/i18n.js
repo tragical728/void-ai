@@ -1625,3 +1625,133 @@ Object.assign(window.I18N.es, {ctE2:"Una conversación de 30 minutos, sin compro
 Object.assign(window.I18N.de, {ctE2:"Ein 30-minütiges Gespräch, unverbindlich"});
 
 Object.assign(window.I18N.zh, {ctE2:"30 分钟沟通，不作任何承诺"});
+
+/* who it is for, and the industries it runs in */
+Object.assign(window.I18N.ru, {
+whoT:"Кому подходит",
+whoL:"Компаниям, где заявки, документы и отчёты обрабатывают руками. Управляет тот же сотрудник, что и раньше: ИТ-отдел не нужен.",
+r1:"Собственнику",
+r1p:"Видит, где утекают деньги, и получает отчёт каждое утро.",
+r2:"Руководителю продаж",
+r2p:"Ни одна заявка не остаётся без ответа, CRM заполнена.",
+r3:"Операционному директору",
+r3p:"Документы и счета вносятся без ручной работы.",
+r4:"Маркетологу",
+r4p:"Понятно, какой канал принёс деньги, а какой съел бюджет.",
+indT:"Отрасли, где это уже работает",
+i1:"Услуги и сервис",
+i2:"Оптовая торговля",
+i3:"Производство",
+i4:"Клиники",
+i5:"Общепит",
+i6:"Логистика",
+i7:"Недвижимость",
+i8:"Образование",
+lkTitle:"Отвечает первый - покупают у него",
+lkLead:"Заявка, пролежавшая до утра, почти всегда уходит конкуренту.",
+workLead:"Девять услуг в двух направлениях. Каждую можно заказать отдельно."
+});
+
+/* who it is for, and the industries it runs in */
+Object.assign(window.I18N.en, {
+whoT:"Who it is for",
+whoL:"Companies where enquiries, paperwork and reports are handled by hand. The same employee runs it afterwards: no IT department needed.",
+r1:"For the owner",
+r1p:"Sees where the money leaks and gets a report every morning.",
+r2:"For the head of sales",
+r2p:"No enquiry goes unanswered and the CRM stays filled in.",
+r3:"For the operations lead",
+r3p:"Invoices and paperwork get entered without manual work.",
+r4:"For the marketer",
+r4p:"It is clear which channel brought money and which ate the budget.",
+indT:"Industries where it already runs",
+i1:"Services",
+i2:"Wholesale",
+i3:"Manufacturing",
+i4:"Clinics",
+i5:"Food and drink",
+i6:"Logistics",
+i7:"Real estate",
+i8:"Education",
+lkTitle:"Whoever answers first gets the sale",
+lkLead:"An enquiry left until morning almost always goes to a competitor.",
+workLead:"Nine services in two directions. Each can be ordered on its own."
+});
+
+/* who it is for, and the industries it runs in */
+Object.assign(window.I18N.es, {
+whoT:"Para quién es",
+whoL:"Empresas donde las consultas, el papeleo y los informes se hacen a mano. Después lo maneja el mismo empleado: no hace falta departamento de informática.",
+r1:"Para el dueño",
+r1p:"Ve por dónde se escapa el dinero y recibe un informe cada mañana.",
+r2:"Para el jefe de ventas",
+r2p:"Ninguna consulta queda sin responder y el CRM se mantiene al día.",
+r3:"Para el director de operaciones",
+r3p:"Facturas y papeleo se registran sin trabajo manual.",
+r4:"Para el responsable de marketing",
+r4p:"Queda claro qué canal trajo dinero y cuál se comió el presupuesto.",
+indT:"Sectores donde ya funciona",
+i1:"Servicios",
+i2:"Mayoristas",
+i3:"Fabricación",
+i4:"Clínicas",
+i5:"Hostelería",
+i6:"Logística",
+i7:"Inmobiliaria",
+i8:"Formación",
+lkTitle:"Quien responde primero se lleva la venta",
+lkLead:"Una consulta que espera a la mañana casi siempre acaba en la competencia.",
+workLead:"Nueve servicios en dos direcciones. Cada uno se contrata por separado."
+});
+
+/* who it is for, and the industries it runs in */
+Object.assign(window.I18N.de, {
+whoT:"Für wen das ist",
+whoL:"Unternehmen, in denen Anfragen, Papierkram und Berichte von Hand laufen. Danach bedient es derselbe Mitarbeiter: keine IT-Abteilung nötig.",
+r1:"Für die Inhaberin",
+r1p:"Sieht, wo Geld versickert, und bekommt jeden Morgen einen Bericht.",
+r2:"Für die Vertriebsleitung",
+r2p:"Keine Anfrage bleibt unbeantwortet, das CRM bleibt gepflegt.",
+r3:"Für die Betriebsleitung",
+r3p:"Rechnungen und Papierkram werden ohne Handarbeit erfasst.",
+r4:"Für das Marketing",
+r4p:"Es ist klar, welcher Kanal Geld gebracht und welcher Budget gefressen hat.",
+indT:"Branchen, in denen es bereits läuft",
+i1:"Dienstleistung",
+i2:"Großhandel",
+i3:"Produktion",
+i4:"Praxen",
+i5:"Gastronomie",
+i6:"Logistik",
+i7:"Immobilien",
+i8:"Bildung",
+lkTitle:"Wer zuerst antwortet, macht das Geschäft",
+lkLead:"Eine Anfrage, die bis zum Morgen liegen bleibt, geht fast immer an den Wettbewerb.",
+workLead:"Neun Leistungen in zwei Richtungen. Jede ist einzeln buchbar."
+});
+
+/* who it is for, and the industries it runs in */
+Object.assign(window.I18N.zh, {
+whoT:"适合谁",
+whoL:"适合还在靠人工处理咨询、单据和报表的公司。上线后仍由原来的员工使用，不需要 IT 部门。",
+r1:"给老板",
+r1p:"看得见钱从哪儿漏，每天早上收到一份报表。",
+r2:"给销售负责人",
+r2p:"没有一条咨询会漏掉，CRM 始终是填好的。",
+r3:"给运营负责人",
+r3p:"发票和单据不用再手工录入。",
+r4:"给市场负责人",
+r4p:"清楚哪个渠道带来了钱，哪个只是烧掉预算。",
+indT:"已经在用的行业",
+i1:"服务业",
+i2:"批发",
+i3:"制造",
+i4:"诊所",
+i5:"餐饮",
+i6:"物流",
+i7:"房产",
+i8:"教育",
+lkTitle:"谁先回复，客户就在谁那儿买",
+lkLead:"过夜才处理的咨询，几乎都被同行接走。",
+workLead:"九项服务，分两个方向，都可以单独下单。"
+});
