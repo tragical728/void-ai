@@ -37,7 +37,7 @@ h3{font-size:clamp(1.02rem,1.7vw,1.28rem);line-height:1.32;letter-spacing:-.015e
 p{margin:0}
 a{color:inherit}
 .eyebrow{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:.66rem;font-weight:400;letter-spacing:.26em;text-transform:uppercase;color:var(--faint)}
+  font-size:.68rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
 .lead{font-size:clamp(1rem,1.5vw,1.17rem);line-height:1.64;color:var(--muted);max-width:62ch}
 .mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
 .dim{color:var(--muted)}
@@ -48,7 +48,8 @@ section{position:relative;padding-block:clamp(68px,9vw,132px);
   border-top:1px solid var(--line);scroll-margin-top:72px}
 /* every section below the hero carries its own background: moving particles
    behind body copy is what made the page hard to read */
-main > section:not(.hero){background:rgba(var(--scrim),.82)}
+main > section:not(.hero){background:rgba(var(--scrim),.86)}
+main > section:nth-of-type(even){background:rgba(var(--scrim2),.88)}
 /* let the ground fall away under the last section so the object can rise into it */
 main > section#contact{background:linear-gradient(180deg,rgba(var(--scrim),.82) 0%,
   rgba(var(--scrim),.82) 55%,rgba(var(--scrim),.35) 100%)}

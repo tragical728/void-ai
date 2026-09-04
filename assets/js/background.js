@@ -24,8 +24,8 @@ window.VOID = window.VOID || {};
   var PAL = {
     dark:{
       wipe:'rgba(5,5,6,.19)',
-      dust:['74,76,82','246,242,234'],
-      spark:'196,216,244',
+      dust:['70,74,86','245,199,126'],
+      spark:'245,199,126',
       hot:'255,243,222', warm:'233,209,170', cool:'146,157,176',
       core:'1,1,2', jets:false, add:true, gain:1
     },
@@ -382,9 +382,9 @@ window.VOID = window.VOID || {};
 
       /* the jets, thrown out of the poles */
       for(var s=-1;s<=1;s+=2){
-        var L = R*3.5, W0 = R*0.035, W1 = R*0.125;
+        var L = R*2.6, W0 = R*0.03, W1 = R*0.10;
         var g = ctx.createLinearGradient(0,0,0,s*L);
-        g.addColorStop(0,'rgba('+p.hot+','+(0.46*o).toFixed(3)+')');
+        g.addColorStop(0,'rgba('+p.hot+','+(0.34*o).toFixed(3)+')');
         g.addColorStop(.14,'rgba('+p.hot+','+(0.24*o).toFixed(3)+')');
         g.addColorStop(.45,'rgba('+p.warm+','+(0.09*o).toFixed(3)+')');
         g.addColorStop(1,'rgba('+p.cool+',0)');
@@ -445,12 +445,22 @@ window.VOID = window.VOID || {};
       ctx.fillStyle = cg;
       ctx.beginPath(); ctx.ellipse(0,0,R*0.92,R*0.46,0,0,TAU); ctx.fill();
 
-      var pin = ctx.createRadialGradient(0,0,0,0,0,R*0.16);
+      /* the horizon: a clean circle so the object still reads as a ring from any
+         angle, including when only its upper half clears the footer */
+      var pin = ctx.createRadialGradient(0,0,0,0,0,R*0.80);
       pin.addColorStop(0,'rgba('+p.core+','+o.toFixed(3)+')');
-      pin.addColorStop(.7,'rgba('+p.core+','+(0.8*o).toFixed(3)+')');
+      pin.addColorStop(.72,'rgba('+p.core+','+(0.92*o).toFixed(3)+')');
       pin.addColorStop(1,'rgba('+p.core+',0)');
       ctx.fillStyle = pin;
-      ctx.beginPath(); ctx.arc(0,0,R*0.16,0,TAU); ctx.fill();
+      ctx.beginPath(); ctx.arc(0,0,R*0.80,0,TAU); ctx.fill();
+
+      ctx.strokeStyle = 'rgba('+p.hot+','+(0.85*o).toFixed(3)+')';
+      ctx.lineWidth = Math.max(1.4, R*0.018);
+      ctx.beginPath(); ctx.arc(0,0,R*0.86,0,TAU); ctx.stroke();
+
+      ctx.strokeStyle = 'rgba('+p.warm+','+(0.34*o).toFixed(3)+')';
+      ctx.lineWidth = Math.max(1, R*0.010);
+      ctx.beginPath(); ctx.arc(0,0,R*1.06,0,TAU); ctx.stroke();
       ctx.globalAlpha = 1;
     }
 

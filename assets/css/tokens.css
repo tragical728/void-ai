@@ -1,48 +1,64 @@
-/* VOID 28 - colour, type and spacing tokens. Dark is the base; light is the quasar. */
-/* ---------- tokens: dark is the base, light is the quasar ---------- */
+/* VOID 28 - colour, type and spacing tokens.
+   Dark is the base; light is the quasar.
+
+   Two things drive this palette:
+   flat black with pure white reads as one undifferentiated wall, so surfaces
+   are layered (bg -> surface -> panel) and text sits at three weights;
+   and a single warm accent carries every number and action, with one
+   semantic red reserved for what a visitor is currently losing. */
 :root{
-  --bg:#050506;
-  --panel:#0a0a0c;
-  --line:rgba(214,226,244,.10);
-  --line-strong:rgba(214,226,244,.20);
-  --text:#F2F4F8;
-  --muted:#9DA3AB;
-  --faint:#868B93;
-  --accent:#E2D6C0;
-  --scrim:5,5,6;
-  --btn-ring:#27272a;
-  --btn-a:#27272a;
-  --btn-b:#09090b;
-  --btn-text:#a1a1aa;
+  --bg:#07070A;
+  --surface:#0D0E13;
+  --panel:#14161D;
+  --line:rgba(214,226,244,.12);
+  --line-strong:rgba(214,226,244,.22);
+  --text:#E9ECF2;
+  --muted:#A2A9B4;
+  --faint:#79808E;
+  --accent:#F5C77E;
+  --accent-dim:rgba(245,199,126,.16);
+  --warn:#E0785C;
+  --warn-dim:rgba(224,120,92,.16);
+  --scrim:7,7,10;
+  --scrim2:13,14,19;
+  --btn-ring:#2A2D36;
+  --btn-a:#2A2D36;
+  --btn-b:#0B0C11;
+  --btn-text:#AEB5C0;
   --btn-text-on:#ffffff;
-  --btn-beam:#ffffff;
-  --btn-inset:rgba(255,255,255,.30);
-  --btn-halo:rgba(255,255,255,.10);
-  --veil-a:rgba(5,5,6,0);
-  --veil-b:rgba(5,5,6,.42);
-  --veil-c:rgba(5,5,6,.72);
+  --btn-beam:#F5C77E;
+  --btn-inset:rgba(255,255,255,.28);
+  --btn-halo:rgba(245,199,126,.18);
+  --veil-a:rgba(7,7,10,0);
+  --veil-b:rgba(7,7,10,.42);
+  --veil-c:rgba(7,7,10,.72);
   --gutter:clamp(18px,5vw,64px);
   --max:1180px;
   color-scheme:dark;
 }
 :root[data-theme="light"]{
   --bg:#F4F0E4;
-  --panel:#FAF7EE;
-  --line:rgba(48,40,26,.14);
-  --line-strong:rgba(48,40,26,.24);
+  --surface:#EDE8D9;
+  --panel:#FBF8F1;
+  --line:rgba(48,40,26,.15);
+  --line-strong:rgba(48,40,26,.26);
   --text:#191510;
   --muted:#4E483D;
   --faint:#6F685A;
-  --accent:#8A7448;
+  --accent:#A8762A;
+  --accent-dim:rgba(168,118,42,.14);
+  --warn:#9E3D22;
+  --warn-dim:rgba(158,61,34,.12);
   --scrim:244,240,228;
+  --scrim2:237,232,217;
   --btn-ring:#D6CFBD;
-  --btn-a:#FEFCF6;
+  --btn-a:#ffffff;
   --btn-b:#E4DDCB;
   --btn-text:#4E483D;
   --btn-text-on:#191510;
-  --btn-beam:#191510;
+  --btn-beam:#A8762A;
   --btn-inset:rgba(255,255,255,.95);
-  --btn-halo:rgba(40,32,18,.13);
+  --btn-halo:rgba(168,118,42,.2);
   --veil-a:rgba(244,240,228,0);
   --veil-b:rgba(244,240,228,.40);
   --veil-c:rgba(244,240,228,.70);

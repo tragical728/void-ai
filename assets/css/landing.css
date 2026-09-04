@@ -143,3 +143,47 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
 .midcta h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:10px}
 .midcta .lead{max-width:46ch;font-size:1rem}
 .midcta{padding-block:clamp(44px,6vw,76px)}
+
+/* ============ visual coding ============
+   One warm accent carries every number and action. One red is reserved for
+   what the visitor is losing today. Nothing else is coloured, so the two
+   actually mean something. */
+
+/* numbered services: a fixed anchor to scan by, instead of five equal blocks */
+.rows{counter-reset:svc}
+.row h3{counter-increment:svc;position:relative}
+.row h3::before{content:counter(svc,decimal-leading-zero);
+  display:block;margin-bottom:8px;
+  font-family:"IBM Plex Mono",Menlo,monospace;font-size:.7rem;font-weight:500;
+  letter-spacing:.18em;color:var(--accent);opacity:.85}
+
+/* the cost of doing nothing reads red; the fix below it reads accent */
+.stat b{color:var(--warn)}
+.after{background:var(--accent-dim);border-left:2px solid var(--accent);
+  padding:18px 22px;border-radius:2px}
+.after p{color:var(--text)}
+
+/* case metrics: the old number recedes, the new one carries the accent */
+.metric b{color:var(--accent)}
+.metric b .was{color:var(--faint);opacity:.75}
+
+/* the process is a 28-day bar, not four paragraphs */
+.steps{counter-reset:stp}
+.step{position:relative;border-top:none;padding-top:26px}
+.step::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--accent);border-radius:2px}
+.step:nth-child(1)::before{opacity:1}
+.step:nth-child(2)::before{opacity:.72}
+.step:nth-child(3)::before{opacity:.48}
+.step:nth-child(4)::before{opacity:.3}
+.step .n{color:var(--accent);font-weight:500}
+.step .when{color:var(--text);font-weight:400}
+
+/* the calculator result is the one number on the page that should shout */
+.big{color:var(--accent)}
+.readout .metric b{color:var(--text)}
+
+/* proof strip sits on its own ground so it reads as a band, not a paragraph */
+.proof{background:rgba(var(--scrim2),.92)!important;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.proof-item b{color:var(--accent)}

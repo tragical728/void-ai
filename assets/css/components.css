@@ -106,8 +106,8 @@ header.is-scrolled{backdrop-filter:blur(14px);
 .ghost{display:inline-flex;align-items:center;gap:9px;padding:11px 22px;border-radius:999px;
   border:1px solid var(--line-strong);color:var(--text);text-decoration:none;font-size:.9rem;
   transition:border-color .25s,background .25s,transform .25s}
-.ghost:hover{border-color:var(--accent);background:rgba(226,214,192,.06);transform:translateY(-2px)}
-:root[data-theme="light"] .ghost:hover{background:rgba(48,40,26,.055)}
+.ghost:hover{border-color:var(--accent);background:var(--accent-dim);transform:translateY(-2px)}
+
 .ghost svg{width:16px;height:16px;flex:none}
 a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible{
   outline:1px solid var(--accent);outline-offset:3px}
