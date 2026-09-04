@@ -1,0 +1,50 @@
+/* VOID 28 — colour, type and spacing tokens. Dark is the base; light is the quasar. */
+/* ---------- tokens: dark is the base, light is the quasar ---------- */
+:root{
+  --bg:#050506;
+  --panel:#0a0a0c;
+  --line:rgba(214,226,244,.10);
+  --line-strong:rgba(214,226,244,.20);
+  --text:#F2F4F8;
+  --muted:#9DA3AB;
+  --faint:#868B93;
+  --accent:#E2D6C0;
+  --scrim:5,5,6;
+  --btn-ring:#27272a;
+  --btn-a:#27272a;
+  --btn-b:#09090b;
+  --btn-text:#a1a1aa;
+  --btn-text-on:#ffffff;
+  --btn-beam:#ffffff;
+  --btn-inset:rgba(255,255,255,.30);
+  --btn-halo:rgba(255,255,255,.10);
+  --veil-a:rgba(5,5,6,0);
+  --veil-b:rgba(5,5,6,.42);
+  --veil-c:rgba(5,5,6,.72);
+  --gutter:clamp(18px,5vw,64px);
+  --max:1180px;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#F4F0E4;
+  --panel:#FAF7EE;
+  --line:rgba(48,40,26,.14);
+  --line-strong:rgba(48,40,26,.24);
+  --text:#191510;
+  --muted:#4E483D;
+  --faint:#6F685A;
+  --accent:#8A7448;
+  --scrim:244,240,228;
+  --btn-ring:#D6CFBD;
+  --btn-a:#FEFCF6;
+  --btn-b:#E4DDCB;
+  --btn-text:#4E483D;
+  --btn-text-on:#191510;
+  --btn-beam:#191510;
+  --btn-inset:rgba(255,255,255,.95);
+  --btn-halo:rgba(40,32,18,.13);
+  --veil-a:rgba(244,240,228,0);
+  --veil-b:rgba(244,240,228,.40);
+  --veil-c:rgba(244,240,228,.70);
+  color-scheme:light;
+}

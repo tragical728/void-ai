@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /thanks.html
+
+Sitemap: https://void28.ai/sitemap.xml

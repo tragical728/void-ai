@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="VOID 28">
+  <title>VOID 28</title>
+  <rect width="1024" height="1024" fill="#000"/>
+  <g fill="#fff">
+    <!-- viewfinder brackets -->
+    <rect x="168" y="168" width="356" height="30"/>
+    <rect x="168" y="168" width="30"  height="272"/>
+    <rect x="500" y="826" width="356" height="30"/>
+    <rect x="826" y="584" width="30"  height="272"/>
+    <!-- accretion wings: wide at the horizon, tapering to the frame -->
+    <path d="M339,481.8 Q232,508 140,594 L140,620 Q252,634 364.4,592.2 Z"/>
+    <path d="M685,518.2 Q792,492 884,406 L884,380 Q772,366 659.6,407.8 Z"/>
+  </g>
+  <!-- the horizon stays empty -->
+  <circle cx="512" cy="500" r="162" fill="#000"/>
+  <circle cx="512" cy="500" r="174" fill="none" stroke="#fff" stroke-width="24"/>
+</svg>

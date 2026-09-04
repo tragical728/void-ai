@@ -1,0 +1,79 @@
+/* VOID 28 — the contact page: a two-column brief, form on the right */
+
+.contact{border-top:none;padding-block:clamp(56px,8vh,110px) clamp(56px,8vw,110px)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+  gap:clamp(32px,5vw,72px);align-items:start}
+
+.contact-left{display:flex;flex-direction:column;gap:26px}
+.contact-left h1{font-size:clamp(2.6rem,6vw,4.4rem);line-height:1;letter-spacing:-.04em;font-weight:200}
+.contact-left .lead{max-width:44ch}
+
+.block{display:flex;flex-direction:column;gap:10px;padding-top:22px;border-top:1px solid var(--line)}
+.block h2{font-family:"IBM Plex Mono",Menlo,monospace;font-size:.68rem;font-weight:400;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin:0}
+.block a{color:var(--text);text-decoration:none;font-size:1.05rem;transition:color .2s}
+.block a:hover{color:var(--accent)}
+
+.expect{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.expect li{display:flex;align-items:baseline;gap:14px;color:var(--muted);font-size:.95rem}
+.expect li::before{content:"";flex:none;width:18px;height:1px;background:var(--accent);
+  transform:translateY(-4px)}
+
+.contact-glyph{width:64px;height:64px;opacity:.5;margin-top:8px}
+
+/* ---------- the form card ---------- */
+.card{background:var(--panel);border:1px solid var(--line-strong);
+  padding:clamp(24px,3vw,38px);display:flex;flex-direction:column;gap:20px}
+.card h2{font-family:"IBM Plex Mono",Menlo,monospace;font-size:.72rem;font-weight:400;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--text);margin:0}
+
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f{display:flex;flex-direction:column;gap:8px}
+.f label{font-family:"IBM Plex Mono",Menlo,monospace;font-size:.66rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--faint)}
+.f .req{color:var(--accent)}
+
+.f input,.f select,.f textarea{
+  width:100%;background:transparent;color:var(--text);
+  border:1px solid var(--line-strong);border-radius:2px;
+  padding:12px 14px;font-family:inherit;font-size:.95rem;font-weight:300;line-height:1.5;
+  transition:border-color .2s,background .2s}
+.f textarea{min-height:132px;resize:vertical}
+.f select{appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),
+                   linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:calc(100% - 20px) 55%,calc(100% - 15px) 55%;
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat;color:var(--muted)}
+.f select option{background:var(--panel);color:var(--text)}
+.f input::placeholder,.f textarea::placeholder{color:var(--faint);opacity:.75}
+.f input:focus,.f select:focus,.f textarea:focus{
+  outline:none;border-color:var(--accent);background:rgba(226,214,192,.04)}
+:root[data-theme="light"] .f input:focus,
+:root[data-theme="light"] .f select:focus,
+:root[data-theme="light"] .f textarea:focus{background:rgba(48,40,26,.04)}
+
+.card .sbtn{align-self:flex-start;margin-top:2px}
+.card-note{color:var(--faint);font-size:.8rem;line-height:1.55}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.err{color:#e0705a;font-size:.82rem;display:none}
+.err.on{display:block}
+:root[data-theme="light"] .err{color:#a8391f}
+
+/* ---------- thank-you ---------- */
+.thanks{display:flex;flex-direction:column;align-items:flex-start;gap:24px;
+  padding-block:clamp(90px,16vh,190px)}
+.thanks h1{font-size:clamp(2.4rem,5.5vw,4rem);line-height:1.02;letter-spacing:-.04em;font-weight:200}
+
+@media(max-width:900px){
+  .contact-grid{grid-template-columns:1fr;gap:36px}
+  .contact-glyph{display:none}
+}
+@media(max-width:520px){
+  .pair{grid-template-columns:1fr}
+}
+
+/* the logo already goes home; on a phone the back link only crowds the bar */
+@media(max-width:560px){
+  .nav .ghost{display:none}
+}
