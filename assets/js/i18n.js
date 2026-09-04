@@ -655,3 +655,28 @@ ctS12:"内容与 SEO",
 ctS13:"数据分析与报表",
 ctS14:"其他"
 });
+
+Object.assign(window.I18N.en, {
+ctSending:"SENDING…",
+ctFail:"The form could not be sent. Write to us on Telegram or by email — both reach us directly."
+});
+
+Object.assign(window.I18N.ru, {
+ctSending:"ОТПРАВЛЯЕМ…",
+ctFail:"Форму отправить не удалось. Напишите в Telegram или на почту — оба канала доходят напрямую."
+});
+
+Object.assign(window.I18N.es, {
+ctSending:"ENVIANDO…",
+ctFail:"No se pudo enviar el formulario. Escríbenos por Telegram o por correo — los dos llegan directamente."
+});
+
+Object.assign(window.I18N.de, {
+ctSending:"WIRD GESENDET…",
+ctFail:"Das Formular konnte nicht gesendet werden. Schreiben Sie uns auf Telegram oder per E-Mail — beides erreicht uns direkt."
+});
+
+Object.assign(window.I18N.zh, {
+ctSending:"发送中…",
+ctFail:"表单发送失败。请通过 Telegram 或邮件联系我们，两者都会直接送达。"
+});

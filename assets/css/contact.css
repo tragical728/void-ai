@@ -56,8 +56,11 @@
 .card-note{color:var(--faint);font-size:.8rem;line-height:1.55}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
-.err{color:#e0705a;font-size:.82rem;display:none}
+.err{color:#e0705a;font-size:.82rem;display:none;line-height:1.7}
 .err.on{display:block}
+.err a{color:var(--accent);text-decoration:none;margin-left:12px;
+  border-bottom:1px solid transparent;transition:border-color .2s}
+.err a:hover{border-bottom-color:currentColor}
 :root[data-theme="light"] .err{color:#a8391f}
 
 /* ---------- thank-you ---------- */
