@@ -47,13 +47,13 @@
     say(fail, false);
     busy(true);
 
-    fetch('/', {
+    fetch(location.pathname, {
       method: 'POST',
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       body: new URLSearchParams(new FormData(form)).toString()
     }).then(function(res){
       if(!res.ok) throw new Error(res.status);
-      window.location.href = form.getAttribute('action') || '/thanks.html';
+      window.location.href = form.getAttribute('action') || 'thanks.html';
     }).catch(function(){
       busy(false);
       say(fail, true);
