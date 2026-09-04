@@ -1505,3 +1505,13 @@ w5t:"每天早上汇总报表",
 w5p:"智能体从你的系统取数，发来一页纸：销售、成本、广告，以及这一天有什么变化。",
 lkTitle:"客户同时问五家。谁先回，就在谁那儿买"
 });
+
+Object.assign(window.I18N.ru, {caseMore:"Подробнее о проекте"});
+
+Object.assign(window.I18N.en, {caseMore:"Read the detail"});
+
+Object.assign(window.I18N.es, {caseMore:"Ver el detalle"});
+
+Object.assign(window.I18N.de, {caseMore:"Details ansehen"});
+
+Object.assign(window.I18N.zh, {caseMore:"查看详情"});
