@@ -58,8 +58,8 @@
 .after p{color:var(--text);font-size:1.01rem}
 
 /* ---------- cases ---------- */
-.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.case{background:var(--panel);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px}
+
+.case{display:flex;flex-direction:column;gap:14px}
 .case-kicker{display:flex;justify-content:space-between;align-items:baseline;gap:12px;color:var(--faint);
   font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-family:"IBM Plex Mono",Menlo,monospace}
 .case p{color:var(--muted);font-size:.96rem}
@@ -326,7 +326,8 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
    Column flow rebalanced its content whenever a card changed height, so
    opening one made the others hop between columns. Explicit columns hold
    their contents: an open card only pushes what is under it in its own. */
-.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start;
+  background:none;border:none}
 .case-col{display:flex;flex-direction:column;gap:14px}
 .case{border:1px solid var(--line);
   opacity:0;transform:translateY(16px);
