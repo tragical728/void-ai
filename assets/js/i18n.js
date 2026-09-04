@@ -1615,3 +1615,13 @@ fq2a:"存在你的账户里。我们在你的服务里干活，用你要求的�
 fq3a:"第一周摸清范围后报价，之后按月付运行和调整费用。多数三个月回本。账算不过来，我们直说，也不接。",
 heroLead:"AI 智能体、Telegram 机器人与小程序、落地页和广告投放。整件事我们全包。价格固定，第 28 天交付能跑的系统。"
 });
+
+Object.assign(window.I18N.ru, {ctE2:"Общение на 30 минут, ни к чему не обязывает"});
+
+Object.assign(window.I18N.en, {ctE2:"A 30-minute conversation, no strings attached"});
+
+Object.assign(window.I18N.es, {ctE2:"Una conversación de 30 minutos, sin compromiso"});
+
+Object.assign(window.I18N.de, {ctE2:"Ein 30-minütiges Gespräch, unverbindlich"});
+
+Object.assign(window.I18N.zh, {ctE2:"30 分钟沟通，不作任何承诺"});
