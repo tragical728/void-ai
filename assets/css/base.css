@@ -54,4 +54,7 @@ main > section:nth-of-type(even){background:rgba(var(--scrim2),.78)}
 main > section#contact{background:linear-gradient(180deg,rgba(var(--scrim),.82) 0%,
   rgba(var(--scrim),.82) 55%,rgba(var(--scrim),.35) 100%)}
 main > section.proof{background:rgba(var(--scrim),.9)}
+/* the cases section fell on the lighter alternating tone, which read as a grey
+   plate behind the cards; it takes the base ground like its neighbours */
+main > section#cases{background:rgba(var(--scrim),.76)}
 .sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:clamp(26px,3.4vw,44px);max-width:74ch}
