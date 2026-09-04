@@ -1,8 +1,13 @@
 /* VOID 28 - hero and landing-only sections */
 /* ---------- hero ---------- */
+/* The hero fills the screen minus twice the header and centres its copy, so the
+   middle of the text lands on the middle of the viewport, which is exactly where
+   the object sits. With the old fixed 820px hero the two drifted apart on tall
+   screens: on a 1440px-high display the headline sat 228px above the ring. */
 .hero{position:relative;border-top:none;
-  padding-block:clamp(84px,13vh,150px) clamp(70px,9vw,120px);
-  min-height:min(820px,90svh);display:flex;align-items:center;justify-content:center}
+  padding-block:clamp(36px,5vh,80px);
+  min-height:calc(100svh - 134px);
+  display:flex;align-items:center;justify-content:center}
 .hero-copy{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;
   text-align:center;gap:clamp(18px,2.4vw,28px);max-width:1180px;margin:0 auto}
 .hero-copy::before{content:"";position:absolute;inset:-14% -16%;z-index:-1;pointer-events:none;
@@ -17,7 +22,8 @@
 .horizon-note{display:flex;align-items:center;gap:14px;color:var(--faint);font-size:.78rem}
 .horizon-note .rule{height:1px;width:clamp(26px,6vw,64px);background:linear-gradient(90deg,transparent,var(--line-strong))}
 .horizon-note .rule-r{background:linear-gradient(90deg,var(--line-strong),transparent)}
-@media(max-width:900px){.hero{min-height:min(740px,86svh)}}
+@media(max-width:900px){.hero{min-height:calc(100svh - 118px)}}
+@media(max-height:620px){.hero{min-height:auto;padding-block:clamp(48px,9vh,90px)}}
 @media(max-width:560px){
   .eyebrow{font-size:.6rem;letter-spacing:.16em}
   .horizon-note{flex-wrap:wrap;justify-content:center;gap:8px 12px}
@@ -187,3 +193,41 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
 .proof{background:rgba(var(--scrim2),.92)!important;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .proof-item b{color:var(--accent)}
+
+/* ---------- case studies: the method behind each number ----------
+   The figures were being read as claims because nothing said what changed or
+   how it was counted. Each card now carries the work done, a before/after bar
+   drawn to the real ratio, and the basis of the measurement. */
+.case-did{border-left:2px solid var(--line-strong);padding-left:16px}
+.case-did h4{margin:0 0 6px;font-family:"IBM Plex Mono",Menlo,monospace;
+  font-size:.64rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--faint)}
+.case-did p{color:var(--muted);font-size:.92rem;line-height:1.6}
+
+.delta{display:flex;flex-direction:column;gap:7px;margin-top:4px}
+.delta-row{display:grid;grid-template-columns:64px minmax(0,1fr) auto;
+  align-items:center;gap:12px}
+.delta-k{font-family:"IBM Plex Mono",Menlo,monospace;font-size:.62rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.delta .bar{display:block;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.delta .bar s{display:block;height:100%;min-width:4px;border-radius:3px;
+  background:var(--faint);opacity:.55;text-decoration:none}
+.delta-row.is-now .bar s{background:var(--accent);opacity:1}
+.delta-v{font-family:"Onest",Helvetica,sans-serif;font-weight:300;font-size:1.05rem;
+  letter-spacing:-.01em;font-variant-numeric:tabular-nums;color:var(--faint);
+  min-width:74px;text-align:right}
+.delta-row.is-now .delta-v{color:var(--accent);font-size:1.3rem}
+.delta-cap{margin-top:2px;font-family:"IBM Plex Mono",Menlo,monospace;font-size:.66rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+
+.case-basis{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);
+  color:var(--faint);font-size:.78rem;line-height:1.55}
+.case-basis span[data-i="caseBase"]{color:var(--muted)}
+
+/* the headline metric now lives in the bar, so the remaining figures sit quieter */
+.case .metrics{gap:8px 24px}
+.case .metric b{font-size:1.15rem}
+@media(max-width:520px){
+  .delta-row{grid-template-columns:56px minmax(0,1fr) auto;gap:9px}
+  .delta-v{min-width:62px;font-size:.95rem}
+}

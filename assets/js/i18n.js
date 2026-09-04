@@ -1220,3 +1220,108 @@ midTitle:"我们来核算你的需求",
 midLead:"说出最占时间的那个流程，一天内答复。",
 midCta:"获取方案和报价"
 });
+
+/* case studies: what changed and how it was measured */
+Object.assign(window.I18N.ru, {
+csLead:"Шесть проектов. Под каждым указано, что именно мы поменяли и как считали цифру, чтобы её можно было проверить.",
+caseDid:"Что сделали",
+caseBase:"Как считали",
+caseWas:"Было",
+caseNow:"Стало",
+c1do:"Собрали все каналы в один поток, написали правила квалификации по бюджету и спецификации, подключили агента к календарю.",
+c1base:"Время от письма клиента до первого ответа. Среднее по логам почты и CRM за 90 дней до запуска и 90 дней после.",
+c2do:"Агент читает PDF и сканы, сверяет позиции с заказом, чистые проводит сам, расхождения ставит в очередь человеку.",
+c2base:"Доля счетов, где при сверке нашли ошибку ввода. Считали по выгрузке из 1С, 1100 счетов в месяц.",
+c3do:"Направили конвейер на записи созвонов и список изменений продукта, редактор только правит и публикует.",
+c3base:"Число опубликованных материалов в месяц. Считали по календарю публикаций за три месяца до и после.",
+c4do:"Подняли оффер на первый экран, сократили форму с семи полей до двух, ускорили загрузку до 1,2 секунды.",
+c4base:"Заявки, делённые на визиты, по данным аналитики. Тот же бюджет и те же кампании, сравнивали 30 дней до и после.",
+c5do:"Сделали мини-апп с меню, выбором времени, оплатой и баллами, плюс бот с напоминаниями постоянным гостям.",
+c5base:"Доля заказов, оплаченных до прихода в кофейню. Считали по эквайрингу за два месяца после запуска.",
+c6do:"Связали каждую заявку с выручкой, отключили два убыточных канала, переписали оффер для двух оставшихся.",
+c6base:"Расход на рекламу, делённый на число пациентов, дошедших до приёма. Данные из CRM клиники за 90 дней."
+});
+
+/* case studies: what changed and how it was measured */
+Object.assign(window.I18N.en, {
+csLead:"Six projects. Each one says what we changed and how the figure was measured, so it can be checked.",
+caseDid:"What we did",
+caseBase:"How it was measured",
+caseWas:"Before",
+caseNow:"After",
+c1do:"Pulled every channel into one queue, wrote qualification rules for budget and spec, connected the agent to the calendar.",
+c1base:"Time from the customer's message to the first reply. Average from mail and CRM logs, 90 days before launch against 90 days after.",
+c2do:"The agent reads PDFs and scans, checks line items against the order, posts the clean ones and queues mismatches for a person.",
+c2base:"Share of invoices where a data-entry error was found during checking. Taken from the ERP export, 1,100 invoices a month.",
+c3do:"Pointed the pipeline at call recordings and the product changelog; the editor only edits and publishes.",
+c3base:"Pieces published per month, counted from the publishing calendar, three months before against three months after.",
+c4do:"Moved the offer to the first screen, cut the form from seven fields to two, brought load time down to 1.2 seconds.",
+c4base:"Enquiries divided by visits, from analytics. Same budget and same campaigns, 30 days before against 30 days after.",
+c5do:"Built a mini-app with the menu, pickup time, payment and loyalty points, plus a bot that nudges regulars.",
+c5base:"Share of orders paid before arriving at the counter, taken from the payment provider over two months after launch.",
+c6do:"Traced every enquiry through to revenue, switched off two channels that lost money, rewrote the offer for the two that paid.",
+c6base:"Ad spend divided by patients who actually attended. Clinic CRM data over 90 days."
+});
+
+/* case studies: what changed and how it was measured */
+Object.assign(window.I18N.es, {
+csLead:"Seis proyectos. Cada uno indica qué cambiamos y cómo se midió la cifra, para que se pueda comprobar.",
+caseDid:"Qué hicimos",
+caseBase:"Cómo se midió",
+caseWas:"Antes",
+caseNow:"Después",
+c1do:"Unimos todos los canales en una sola cola, escribimos reglas de cualificación por presupuesto y especificación y conectamos el agente al calendario.",
+c1base:"Tiempo desde el mensaje del cliente hasta la primera respuesta. Media de los registros de correo y CRM, 90 días antes frente a 90 días después.",
+c2do:"El agente lee PDF y escaneos, coteja las líneas con el pedido, contabiliza las limpias y deja las discrepancias a una persona.",
+c2base:"Proporción de facturas con error de introducción detectado en la revisión. Datos del ERP, 1.100 facturas al mes.",
+c3do:"Apuntamos el flujo a las grabaciones de llamadas y al registro de cambios; el editor solo corrige y publica.",
+c3base:"Piezas publicadas al mes, contadas en el calendario editorial, tres meses antes frente a tres meses después.",
+c4do:"Subimos la oferta a la primera pantalla, dejamos el formulario en dos campos y bajamos la carga a 1,2 segundos.",
+c4base:"Consultas divididas entre visitas, según la analítica. Mismo presupuesto y mismas campañas, 30 días antes frente a 30 después.",
+c5do:"Hicimos una mini-app con carta, hora de recogida, pago y puntos, más un bot que avisa a los habituales.",
+c5base:"Proporción de pedidos pagados antes de llegar al mostrador, según la pasarela de pago, dos meses tras el lanzamiento.",
+c6do:"Rastreamos cada consulta hasta el ingreso, apagamos dos canales que perdían dinero y reescribimos la oferta de los dos rentables.",
+c6base:"Gasto en publicidad dividido entre pacientes que acudieron. Datos del CRM de la clínica durante 90 días."
+});
+
+/* case studies: what changed and how it was measured */
+Object.assign(window.I18N.de, {
+csLead:"Sechs Projekte. Bei jedem steht, was wir geändert haben und wie die Zahl gemessen wurde, damit sie prüfbar ist.",
+caseDid:"Was wir gemacht haben",
+caseBase:"Wie gemessen wurde",
+caseWas:"Vorher",
+caseNow:"Nachher",
+c1do:"Alle Kanäle in eine Warteschlange geführt, Qualifizierungsregeln nach Budget und Spezifikation geschrieben, den Agenten an den Kalender angebunden.",
+c1base:"Zeit von der Nachricht des Kunden bis zur ersten Antwort. Mittel aus Mail- und CRM-Protokollen, 90 Tage vor gegen 90 Tage nach dem Start.",
+c2do:"Der Agent liest PDFs und Scans, gleicht Positionen mit dem Auftrag ab, bucht die sauberen und legt Abweichungen einem Menschen vor.",
+c2base:"Anteil der Rechnungen mit einem bei der Prüfung gefundenen Erfassungsfehler. Aus dem ERP-Export, 1.100 Rechnungen im Monat.",
+c3do:"Die Strecke auf Gesprächsaufzeichnungen und das Changelog gerichtet; die Redaktion korrigiert und veröffentlicht nur noch.",
+c3base:"Veröffentlichte Beiträge pro Monat, gezählt im Redaktionskalender, drei Monate vorher gegen drei Monate nachher.",
+c4do:"Das Angebot auf den ersten Bildschirm geholt, das Formular von sieben auf zwei Felder gekürzt, die Ladezeit auf 1,2 Sekunden gebracht.",
+c4base:"Anfragen geteilt durch Besuche, aus der Analytik. Gleiches Budget, gleiche Kampagnen, 30 Tage vorher gegen 30 Tage nachher.",
+c5do:"Eine Mini-App mit Karte, Abholzeit, Zahlung und Treuepunkten gebaut, dazu einen Bot, der Stammgäste erinnert.",
+c5base:"Anteil der vor dem Eintreffen bezahlten Bestellungen, aus dem Zahlungsdienstleister über zwei Monate nach dem Start.",
+c6do:"Jede Anfrage bis zum Umsatz verfolgt, zwei defizitäre Kanäle abgeschaltet, das Angebot für die zwei tragenden neu geschrieben.",
+c6base:"Werbeausgaben geteilt durch tatsächlich erschienene Patienten. Daten aus dem Praxis-CRM über 90 Tage."
+});
+
+/* case studies: what changed and how it was measured */
+Object.assign(window.I18N.zh, {
+csLead:"六个项目。每个都写清楚我们改了什么、数字怎么算出来的，方便核对。",
+caseDid:"我们做了什么",
+caseBase:"怎么统计的",
+caseWas:"之前",
+caseNow:"之后",
+c1do:"把所有渠道汇成一条队列，写好按预算和规格判断的规则，并把智能体接到日历上。",
+c1base:"从客户发消息到首次回复的时间。取自邮箱和 CRM 日志，上线前 90 天与上线后 90 天的均值。",
+c2do:"智能体读取 PDF 和扫描件，逐项与订单核对，干净的直接入账，对不上的排队交人处理。",
+c2base:"核对时发现录入错误的发票占比。取自 ERP 导出数据，每月 1,100 张。",
+c3do:"把内容流水线对准通话录音和产品更新日志，编辑只负责修改和发布。",
+c3base:"每月发布的内容条数，按发布日历统计，前三个月与后三个月对比。",
+c4do:"把报价挪到第一屏，表单从七项砍到两项，加载时间降到 1.2 秒。",
+c4base:"咨询数除以访问数，来自统计工具。预算和投放不变，对比前 30 天与后 30 天。",
+c5do:"做了小程序：菜单、取餐时间、支付和积分，另配一个提醒常客的机器人。",
+c5base:"到店前已付款的订单占比，取自支付渠道数据，统计上线后两个月。",
+c6do:"把每条线索追踪到营收，关掉两个亏损渠道，为剩下两个重写报价。",
+c6base:"广告支出除以实际到诊人数。数据来自诊所 CRM，统计 90 天。"
+});

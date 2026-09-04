@@ -306,7 +306,9 @@ window.VOID = window.VOID || {};
       w = window.innerWidth; h = window.innerHeight;
       c.width = w*dpr; c.height = h*dpr;
       ctx.setTransform(dpr,0,0,dpr,0,0);
-      R = Math.min(w*0.160, h*0.215);
+      /* keyed to both axes so the disc bleeds past the edges on a wide 2K panel
+         the same way it does on a 13-inch laptop */
+      R = w < 700 ? w*0.160 : Math.min(w*0.145, h*0.250);
       build();
       cur.x = w*0.5; cur.y = h*0.5; cur.R = R;
     }
