@@ -1,6 +1,6 @@
 # VOID 28
 
-Static marketing site. No build step, no dependencies — every file here is what
+Static marketing site. No build step, no dependencies - every file here is what
 gets served.
 
 ## Structure
@@ -35,16 +35,16 @@ gets served.
 python3 -m http.server 8899
 ```
 
-Then open http://127.0.0.1:8899 — paths are absolute (`/assets/...`), so opening
+Then open http://127.0.0.1:8899 - paths are absolute (`/assets/...`), so opening
 `index.html` straight off the disk will not load the CSS.
 
 ## Before going live
 
 Replace the placeholder domain `void28.ai` with the real one in:
 
-- `index.html`, `contact.html` — `<link rel="canonical">`, `og:url`, `og:image`
-- `robots.txt` — `Sitemap:`
-- `sitemap.xml` — both `<loc>` entries
+- `index.html`, `contact.html` - `<link rel="canonical">`, `og:url`, `og:image`
+- `robots.txt` - `Sitemap:`
+- `sitemap.xml` - both `<loc>` entries
 - the JSON-LD block at the bottom of `index.html`'s `<head>`
 
 And the placeholder address `bensteeler82@gmail.com` in `index.html` and `contact.html`.
@@ -53,11 +53,11 @@ And the placeholder address `bensteeler82@gmail.com` in `index.html` and `contac
 
 `contact.html` posts to Netlify Forms: `data-netlify="true"`, a hidden
 `form-name` field, and a honeypot named `bot-field`. Netlify picks the form up
-from the static HTML at deploy time — nothing to configure in code. Submissions
+from the static HTML at deploy time - nothing to configure in code. Submissions
 land in **Netlify → Forms → contact**.
 
 ## Translations
 
 Text lives in `assets/js/i18n.js`, keyed by the `data-i` (text), `data-ih`
 (HTML) and `data-ip` (placeholder) attributes in the markup. To change a
-sentence, edit the key — not the HTML.
+sentence, edit the key - not the HTML.

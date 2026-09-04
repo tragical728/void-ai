@@ -1,4 +1,4 @@
-/* VOID 28 — hero and landing-only sections */
+/* VOID 28 - hero and landing-only sections */
 /* ---------- hero ---------- */
 .hero{position:relative;border-top:none;
   padding-block:clamp(84px,13vh,150px) clamp(70px,9vw,120px);
@@ -111,7 +111,7 @@ summary .plus{color:var(--faint);font-family:"IBM Plex Mono",Menlo,monospace;fon
 details[open] summary .plus{transform:rotate(45deg)}
 details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem}
 
-/* plain words, so the offer is legible before anyone reads a sentence —
+/* plain words, so the offer is legible before anyone reads a sentence -
    one horizontal line in the same type as the body copy */
 .hero-tags{list-style:none;margin:2px 0 0;padding:0;
   display:flex;flex-wrap:wrap;justify-content:center;align-items:center;

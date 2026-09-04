@@ -1,4 +1,4 @@
-/* VOID 28 — contact form.
+/* VOID 28 - contact form.
    Submits over fetch so a rejected POST shows a usable message instead of
    dropping the visitor on the host's 404 page. Without JavaScript the form
    still posts natively, which is how Netlify expects it. */

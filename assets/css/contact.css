@@ -1,4 +1,4 @@
-/* VOID 28 — the contact page: a two-column brief, form on the right */
+/* VOID 28 - the contact page: a two-column brief, form on the right */
 
 .contact{border-top:none;padding-block:clamp(56px,8vh,110px) clamp(56px,8vw,110px)}
 .contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);

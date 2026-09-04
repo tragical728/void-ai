@@ -1,4 +1,4 @@
-/* VOID 28 — language switching, the calculator, reveals and the header controls */
+/* VOID 28 - language switching, the calculator, reveals and the header controls */
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function store(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }

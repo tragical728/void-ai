@@ -1,4 +1,4 @@
-/* VOID 28 — the background: a drifting particle field and the object it falls into.
+/* VOID 28 - the background: a drifting particle field and the object it falls into.
    Dark theme renders a lensed black hole, light theme renders a quasar.
    Exposes window.VOID.setTheme() for the UI layer. */
 window.VOID = window.VOID || {};
@@ -259,7 +259,7 @@ window.VOID = window.VOID || {};
     var w=0,h=0,dpr=1,R=0,t=0;
     var NR=28, NS=6, ND=22, NU=14, NK=18;
     var cache=null, built='';
-    /* what is drawn now eases toward what the scroll asks for — no snapping */
+    /* what is drawn now eases toward what the scroll asks for - no snapping */
     var cur = {x:0,y:0,rot:-0.1,sx:1,sy:1,op:1,R:1}, tgt = null, warm=false;
 
     function ink(a){ var p=pal(); return 'rgba('+p.hot+','+a+')'; }
@@ -325,7 +325,7 @@ window.VOID = window.VOID || {};
       }
       ctx.globalAlpha = cur.op;
     }
-    /* short arcs sliding along each ring — inner ones orbit faster */
+    /* short arcs sliding along each ring - inner ones orbit faster */
     function streaks(time, front){
       if(PERF.tier < 0.6) return;      /* the sliding filaments are the first thing to go */
       var base = front ? 0 : Math.PI;
@@ -556,7 +556,7 @@ window.VOID = window.VOID || {};
       ctx.globalCompositeOperation = 'source-over';
     }
 
-    /* where the scroll wants it — the hero holds it dead centre, then it is
+    /* where the scroll wants it - the hero holds it dead centre, then it is
        stretched, tilted and carried to the side, and it stays for every block */
     function aim(time){
       var vh = window.innerHeight || 1;
@@ -583,7 +583,7 @@ window.VOID = window.VOID || {};
     function loop(ts){
       t = ts/1000;
       aim(t);
-      var k = 0.075;                                    /* inertia — this is what kills the jump */
+      var k = 0.075;                                    /* inertia - this is what kills the jump */
       cur.x  += (tgt.x  - cur.x )*k;
       cur.y  += (tgt.y  - cur.y )*k;
       cur.rot+= (tgt.rot- cur.rot)*k;
