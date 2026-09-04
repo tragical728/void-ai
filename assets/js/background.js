@@ -560,23 +560,39 @@ window.VOID = window.VOID || {};
        stretched, tilted and carried to the side, and it stays for every block */
     function aim(time){
       var vh = window.innerHeight || 1;
-      var q  = (window.pageYOffset || document.documentElement.scrollTop || 0)/vh;
+      var doc = document.documentElement;
+      var y  = window.pageYOffset || doc.scrollTop || 0;
+      var q  = y/vh;
       var p  = q<0?0:(q>1?1:q);
       var e  = p*p*(3-2*p);
-      var rp = (p-0.26)/0.74; rp = rp<0?0:(rp>1?1:rp);
-      var re = rp*rp*(3-2*rp);
-      var narrow = w < 900;
-      var sc = 1 - 0.26*e;
-      var drift = Math.sin(q*0.55 + time*0.05);        /* keeps it alive further down */
+      var sc = 1 - 0.18*e;
+      var drift = Math.sin(q*0.55 + time*0.05);
 
+      /* the last screen: the object rises from behind the footer, centre just
+         past the bottom edge, so the crown of the lensed arc clears the horizon */
+      var maxY = Math.max(1, doc.scrollHeight - vh);
+      var zone = vh*0.85;
+      var t = (y - (maxY - zone))/zone;
+      t = t<0?0:(t>1?1:t);
+      var te = t*t*(3-2*t);
+
+      /* sections below the hero carry their own ground now, so the object stays
+         centred instead of sliding out of the way */
+      var baseY  = h*(0.5 + 0.05*e + 0.012*drift*e);
+      var baseOp = q < 1 ? 1 - 0.86*e : 0.14;
+      var baseRt = -0.10 - 0.10*e + 0.04*drift*e;
+
+      /* grown so the crown of the arc clears the footer's empty band while the
+         shadow itself sits behind the text, which keeps the copy on flat ground */
+      var grow = sc*(1 + 1.10*te);
       tgt = {
-        x: w*(0.5 + (narrow?0.22:0.30)*e + (narrow?0.03:0.045)*drift*e),
-        y: h*(0.5 - (narrow?0.02:0.03)*e + 0.05*Math.sin(Math.PI*e) + 0.03*drift*e),
-        rot: -0.10 - 0.68*re + 0.05*drift*re,
-        sx: sc,
-        sy: sc,
-        op: q < 1 ? 1 - 0.86*e : 0.14,                 /* barely there once real copy starts */
-        R : sc*R
+        x  : w*0.5,
+        y  : baseY + (h - baseY)*te,
+        rot: baseRt*(1-te) + (-0.04)*te,
+        sx : grow,
+        sy : grow,
+        op : baseOp + (0.9 - baseOp)*te,
+        R  : grow*R
       };
     }
 

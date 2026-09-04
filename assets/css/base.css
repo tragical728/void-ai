@@ -49,5 +49,8 @@ section{position:relative;padding-block:clamp(68px,9vw,132px);
 /* every section below the hero carries its own background: moving particles
    behind body copy is what made the page hard to read */
 main > section:not(.hero){background:rgba(var(--scrim),.82)}
+/* let the ground fall away under the last section so the object can rise into it */
+main > section#contact{background:linear-gradient(180deg,rgba(var(--scrim),.82) 0%,
+  rgba(var(--scrim),.82) 55%,rgba(var(--scrim),.35) 100%)}
 main > section.proof{background:rgba(var(--scrim),.9)}
 .sec-head{display:flex;flex-direction:column;gap:16px;margin-bottom:clamp(34px,5vw,60px);max-width:74ch}

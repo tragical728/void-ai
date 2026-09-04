@@ -117,12 +117,16 @@ a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible{
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 
 /* ---------- footer ---------- */
+/* the footer is deliberately see-through at the top: the object rises from
+   behind it, and the crown of the lensed arc reads as a horizon line.
+   The ground thickens further down so the text still sits on something. */
 footer{position:relative;border-top:1px solid var(--line);margin-top:0;
-  background:radial-gradient(38% 130px at 50% 0%,rgba(226,214,192,.07),transparent);
-  padding:clamp(44px,6vw,68px) 0 clamp(30px,4vw,44px)}
-:root[data-theme="light"] footer{background:radial-gradient(38% 130px at 50% 0%,rgba(48,40,26,.08),transparent)}
+  background:linear-gradient(180deg,rgba(var(--scrim),0) 0%,rgba(var(--scrim),.18) 26%,
+    rgba(var(--scrim),.72) 48%,rgba(var(--scrim),.94) 100%);
+  padding:clamp(120px,17vh,210px) 0 clamp(30px,4vw,44px)}
 footer::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:33%;height:1px;background:var(--line-strong);filter:blur(1px);border-radius:999px}
+  width:46%;height:1px;background:linear-gradient(90deg,transparent,var(--line-strong),transparent);
+  filter:blur(1px)}
 .foot-grid{display:grid;grid-template-columns:1.1fr 2fr;gap:34px}
 .foot-brand{display:flex;flex-direction:column;gap:14px;max-width:34ch}
 .foot-brand .def{color:var(--faint);font-size:.84rem;line-height:1.6}
