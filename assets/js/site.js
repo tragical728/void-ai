@@ -110,6 +110,10 @@
       var onScroll = function(){
         var y = window.pageYOffset || document.documentElement.scrollTop || 0;
         head.classList.toggle('is-scrolled', y > 12);
+        /* the particle field is atmosphere for the hero; below it the page is
+           read, so drop it back rather than making people read through motion */
+        var t = Math.min(1, y / (window.innerHeight * 0.55));
+        document.documentElement.style.setProperty('--field', (1 - t * 0.78).toFixed(3));
       };
       window.addEventListener('scroll', onScroll, {passive:true});
       onScroll();

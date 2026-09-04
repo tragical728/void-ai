@@ -1135,3 +1135,88 @@ xLead:"三十分钟，不用看材料。说出最占时间的那个流程，我�
 ctLead:"用你自己的话说清楚需求。三十分钟就能判断我们能不能帮上忙，以及大概多少钱。",
 ctE3:"一份书面方案和报价"
 });
+
+/* hero call to action, proof strip, mid-page call to action */
+Object.assign(window.I18N.ru, {
+heroCta:"Получить план и цену",
+heroCta2:"Смотреть работы",
+s1n:"28",
+s1l:"дней до запуска",
+s2n:"< 1 мин",
+s2l:"ответ на заявку",
+s3n:"6 из 10",
+s3l:"обращений закрывает бот",
+s4n:"3 мес",
+s4l:"средняя окупаемость",
+midTitle:"Посчитаем вашу задачу",
+midLead:"Назовите процесс, который съедает больше всего времени. Ответим за сутки.",
+midCta:"Получить план и цену"
+});
+
+/* hero call to action, proof strip, mid-page call to action */
+Object.assign(window.I18N.en, {
+heroCta:"Get a plan and a price",
+heroCta2:"See our work",
+s1n:"28",
+s1l:"days to launch",
+s2n:"< 1 min",
+s2l:"reply to an enquiry",
+s3n:"6 in 10",
+s3l:"tickets closed by the bot",
+s4n:"3 mo",
+s4l:"average payback",
+midTitle:"Let us cost out your job",
+midLead:"Name the process that eats the most time. We reply within a day.",
+midCta:"Get a plan and a price"
+});
+
+/* hero call to action, proof strip, mid-page call to action */
+Object.assign(window.I18N.es, {
+heroCta:"Pedir plan y precio",
+heroCta2:"Ver trabajos",
+s1n:"28",
+s1l:"días hasta el lanzamiento",
+s2n:"< 1 min",
+s2l:"respuesta a una consulta",
+s3n:"6 de 10",
+s3l:"casos que cierra el bot",
+s4n:"3 meses",
+s4l:"retorno medio",
+midTitle:"Presupuestamos tu caso",
+midLead:"Di qué proceso se lleva más tiempo. Respondemos en un día.",
+midCta:"Pedir plan y precio"
+});
+
+/* hero call to action, proof strip, mid-page call to action */
+Object.assign(window.I18N.de, {
+heroCta:"Plan und Preis anfordern",
+heroCta2:"Arbeiten ansehen",
+s1n:"28",
+s1l:"Tage bis zum Start",
+s2n:"< 1 Min",
+s2l:"Antwort auf eine Anfrage",
+s3n:"6 von 10",
+s3l:"Anfragen erledigt der Bot",
+s4n:"3 Mon.",
+s4l:"typische Amortisation",
+midTitle:"Wir rechnen Ihre Aufgabe durch",
+midLead:"Nennen Sie den Prozess, der am meisten Zeit frisst. Antwort binnen eines Tages.",
+midCta:"Plan und Preis anfordern"
+});
+
+/* hero call to action, proof strip, mid-page call to action */
+Object.assign(window.I18N.zh, {
+heroCta:"获取方案和报价",
+heroCta2:"查看案例",
+s1n:"28",
+s1l:"天上线",
+s2n:"< 1 分钟",
+s2l:"回复客户咨询",
+s3n:"10 单中 6 单",
+s3l:"由机器人处理",
+s4n:"3 个月",
+s4l:"平均回本",
+midTitle:"我们来核算你的需求",
+midLead:"说出最占时间的那个流程，一天内答复。",
+midCta:"获取方案和报价"
+});

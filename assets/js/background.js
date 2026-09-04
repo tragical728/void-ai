@@ -575,7 +575,7 @@ window.VOID = window.VOID || {};
         rot: -0.10 - 0.68*re + 0.05*drift*re,
         sx: sc,
         sy: sc,
-        op: q < 1 ? 1 - 0.68*e : 0.32,                 /* never leaves the page */
+        op: q < 1 ? 1 - 0.86*e : 0.14,                 /* barely there once real copy starts */
         R : sc*R
       };
     }

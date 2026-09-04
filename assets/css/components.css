@@ -99,6 +99,7 @@ header.is-scrolled{backdrop-filter:blur(14px);
 .sbtn-face svg{width:14px;height:14px;transition:transform .3s;flex:none}
 .sbtn:hover .sbtn-face svg{transform:translateX(2px)}
 .sbtn-sm .sbtn-face{padding:8px 18px;font-size:.68rem;letter-spacing:.14em}
+.sbtn-lg .sbtn-face{padding:15px 32px;font-size:.8rem;letter-spacing:.14em}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media(max-width:560px){.nav .sbtn{display:none}}
 
