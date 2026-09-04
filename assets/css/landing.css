@@ -164,7 +164,7 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
   letter-spacing:.18em;color:var(--accent);opacity:.85}
 
 /* the cost of doing nothing reads red; the fix below it reads accent */
-.stat b{color:var(--warn)}
+.stat b{color:var(--accent)}
 .after{background:var(--accent-dim);border-left:2px solid var(--accent);
   padding:18px 22px;border-radius:2px}
 .after p{color:var(--text)}
@@ -231,3 +231,43 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
   .delta-row{grid-template-columns:56px minmax(0,1fr) auto;gap:9px}
   .delta-v{min-width:62px;font-size:.95rem}
 }
+
+/* ---------- what an agent is: a four-step flow, not a paragraph ---------- */
+.ex-flow{list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.4vw,28px);counter-reset:ex}
+.ex-step{position:relative;display:flex;flex-direction:column;gap:9px;
+  padding:22px 20px;border:1px solid var(--line);border-radius:3px;
+  background:rgba(var(--scrim2),.5)}
+/* the arrow that turns four boxes into one sequence */
+.ex-step:not(:last-child)::after{content:"";position:absolute;top:50%;right:-14px;
+  width:10px;height:10px;border-top:1px solid var(--line-strong);
+  border-right:1px solid var(--line-strong);transform:translateY(-50%) rotate(45deg)}
+.ex-ic{display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;
+  border-radius:50%;background:var(--accent-dim);color:var(--accent)}
+.ex-ic svg{width:18px;height:18px}
+.ex-n{font-family:"IBM Plex Mono",Menlo,monospace;font-size:.64rem;letter-spacing:.18em;
+  color:var(--accent);opacity:.8}
+.ex-step h3{font-size:1rem;font-weight:400;letter-spacing:-.01em}
+.ex-step p{color:var(--muted);font-size:.9rem;line-height:1.55}
+.ex-note{margin-top:clamp(22px,3vw,34px);padding:18px 22px;border-radius:3px;
+  background:var(--accent-dim);border-left:2px solid var(--accent);
+  color:var(--text);font-size:1.02rem;line-height:1.6;max-width:78ch}
+@media(max-width:980px){
+  .ex-flow{grid-template-columns:repeat(2,1fr)}
+  .ex-step:nth-child(2)::after{display:none}
+}
+@media(max-width:560px){
+  .ex-flow{grid-template-columns:1fr}
+  .ex-step::after{display:none!important}
+}
+
+/* ---------- one services section, two named groups ---------- */
+.grp{margin:clamp(26px,3.6vw,44px) 0 4px;font-size:1rem;font-weight:400;
+  letter-spacing:-.005em;color:var(--text);
+  padding-bottom:10px}
+.grp:first-of-type{margin-top:0}
+.rows + .grp{margin-top:clamp(34px,4.4vw,56px)}
+.grp::before{content:"";display:block;width:26px;height:2px;background:var(--accent);
+  margin-bottom:12px;border-radius:2px}
+/* numbering restarts inside each group so the list reads as two sets */
+.rows{counter-reset:svc}
