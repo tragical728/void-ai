@@ -47,13 +47,13 @@
     say(fail, false);
     busy(true);
 
-    fetch(location.pathname, {
+    fetch('https://formsubmit.co/ajax/bensteeler82@gmail.com', {
       method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: new URLSearchParams(new FormData(form)).toString()
+      headers: {'Accept': 'application/json'},
+      body: new FormData(form)
     }).then(function(res){
       if(!res.ok) throw new Error(res.status);
-      window.location.href = form.getAttribute('action') || 'thanks.html';
+      window.location.href = 'thanks.html';
     }).catch(function(){
       busy(false);
       say(fail, true);

@@ -90,10 +90,15 @@
       <svg class="contact-glyph" viewBox="0 0 1024 1024" width="64" height="64" aria-hidden="true" fill="currentColor"><g><rect x="168" y="168" width="356" height="30"/><rect x="168" y="168" width="30" height="272"/><rect x="500" y="826" width="356" height="30"/><rect x="826" y="584" width="30" height="272"/><path d="M339,481.8 Q232,508 140,594 L140,620 Q252,634 364.4,592.2 Z"/><path d="M685,518.2 Q792,492 884,406 L884,380 Q772,366 659.6,407.8 Z"/></g><circle cx="512" cy="500" r="174" fill="none" stroke="currentColor" stroke-width="24"/></svg>
     </div>
 
-    <form class="card" name="contact" method="POST" action="thanks.html"
-          data-netlify="true" netlify-honeypot="bot-field" id="contact-form">
-      <input type="hidden" name="form-name" value="contact">
-      <p class="hp"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <form class="card" method="POST" id="contact-form"
+          action="https://formsubmit.co/bensteeler82@gmail.com">
+      <!-- FormSubmit: no account, no key. The first submission triggers a
+           confirmation email that has to be accepted once. -->
+      <input type="hidden" name="_subject" value="VOID 28 - new enquiry">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://tragical728.github.io/void-ai/thanks.html">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
 
       <h2 data-i="ctForm">SEND US A MESSAGE</h2>
 
