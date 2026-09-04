@@ -1755,3 +1755,13 @@ lkTitle:"谁先回复，客户就在谁那儿买",
 lkLead:"过夜才处理的咨询，几乎都被同行接走。",
 workLead:"九项服务，分两个方向，都可以单独下单。"
 });
+
+Object.assign(window.I18N.ru, {whoE:"КОМУ ЭТО НУЖНО"});
+
+Object.assign(window.I18N.en, {whoE:"FOR WHOM"});
+
+Object.assign(window.I18N.es, {whoE:"PARA QUIÉN"});
+
+Object.assign(window.I18N.de, {whoE:"FÜR WEN"});
+
+Object.assign(window.I18N.zh, {whoE:"适合谁"});

@@ -156,8 +156,7 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
 .readout .metric b{color:var(--text)}
 
 /* proof strip sits on its own ground so it reads as a band, not a paragraph */
-.proof{background:rgba(var(--scrim2),.92)!important;
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
 .proof-item b{color:var(--accent)}
 
 /* ---------- case studies: the method behind each number ----------
@@ -286,11 +285,9 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
 
 /* ---------- who it is for ----------
    The page said what we build but never who buys it or who runs it after. */
-.who{margin-top:clamp(30px,4vw,50px);padding-top:clamp(26px,3.4vw,40px);
-  border-top:1px solid var(--line)}
-.who h3{font-family:"Onest",Helvetica,sans-serif;font-size:clamp(1.3rem,2.2vw,1.7rem);
-  font-weight:300;letter-spacing:-.022em;margin:0 0 10px}
-.who .lead{max-width:72ch;margin-bottom:clamp(20px,2.6vw,30px)}
+.who{margin-top:0}
+.who h2{margin:8px 0 10px}
+.who .lead{max-width:72ch;margin-bottom:clamp(18px,2.2vw,26px)}
 .who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
   background:var(--line);border:1px solid var(--line)}
 .who-card{background:rgba(var(--scrim2),.86);padding:18px 18px 20px;
@@ -325,11 +322,18 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
   .svc-grid{grid-template-columns:1fr;gap:clamp(30px,5vw,48px)}
 }
 
-/* ---------- case grid: three across, staggered entrance ---------- */
-.cases{grid-template-columns:repeat(3,1fr)}
-.case{opacity:0;transform:translateY(16px);
-  transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+/* ---------- case grid: three across, staggered entrance ----------
+   Real borders and a gap, not a 1px grid gap over a tinted background: with
+   the latter, opening one card stretched the whole row and left lit empty
+   panels beside it. align-items:start keeps every card at its own height. */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);
+  gap:14px;background:none;border:none;align-items:start}
+.case{border:1px solid var(--line);background:var(--panel);
+  opacity:0;transform:translateY(16px);
+  transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1),border-color .3s ease}
 .case.in{opacity:1;transform:none}
+.case:hover{border-color:var(--line-strong)}
+.case details[open]{border-color:var(--accent)}
 .case summary{gap:11px;padding:clamp(20px,2.2vw,26px)}
 .case summary h3{font-size:clamp(1rem,1.5vw,1.16rem)}
 .case-kicker{font-size:.62rem;letter-spacing:.14em}
@@ -338,3 +342,24 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
 }
 @media(max-width:1080px){.cases{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:720px){.cases{grid-template-columns:1fr}}
+
+/* ---------- proof strip: the numbers a visitor should leave with ---------- */
+.proof{padding-block:clamp(24px,3vw,38px);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2.4vw,34px)}
+.proof-item{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center}
+.proof-item b{font-family:"Onest",Helvetica,sans-serif;font-weight:300;
+  font-size:clamp(1.5rem,3vw,2.3rem);line-height:1;letter-spacing:-.03em;
+  color:var(--accent);font-variant-numeric:tabular-nums}
+.proof-item span{font-size:.84rem;color:var(--muted);line-height:1.4}
+@media(max-width:760px){
+  .proof-grid{grid-template-columns:repeat(2,1fr);gap:20px 14px}
+  .proof-item{align-items:flex-start;text-align:left}
+}
+
+/* ---------- mid-page call to action ---------- */
+.midcta{padding-block:clamp(40px,5vw,66px)}
+.midcta-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:clamp(18px,3.4vw,44px)}
+.midcta h2{font-size:clamp(1.5rem,2.8vw,2.1rem);margin-bottom:8px}
+.midcta .lead{max-width:46ch;font-size:1rem}
