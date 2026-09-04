@@ -19,7 +19,7 @@
 .expect li::before{content:"";flex:none;width:18px;height:1px;background:var(--accent);
   transform:translateY(-4px)}
 
-.contact-glyph{width:64px;height:64px;opacity:.5;margin-top:8px}
+.contact-glyph{width:64px;height:64px;opacity:.42;margin-top:8px;color:var(--text)}
 
 /* ---------- the form card ---------- */
 .card{background:var(--panel);border:1px solid var(--line-strong);

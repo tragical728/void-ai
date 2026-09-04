@@ -12,8 +12,7 @@ header.is-scrolled{backdrop-filter:blur(14px);
 .mark{display:inline-flex;align-items:center;gap:11px;
   font-family:"Onest",Helvetica,sans-serif;font-weight:400;font-size:1rem;
   letter-spacing:.38em;text-decoration:none;white-space:nowrap}
-.mark-glyph{width:26px;height:26px;flex:none;border-radius:4px;display:block}
-:root[data-theme="light"] .mark-glyph{outline:1px solid var(--line);outline-offset:-1px}
+.mark-glyph{width:26px;height:26px;flex:none;display:block;color:var(--text)}
 .nav-links{display:flex;align-items:center;gap:4px;margin-inline:auto}
 .nav-links a{position:relative;padding:9px 16px;border-radius:999px;
   font-size:.9rem;color:var(--muted);text-decoration:none;white-space:nowrap;

@@ -326,9 +326,13 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
    Real borders and a gap, not a 1px grid gap over a tinted background: with
    the latter, opening one card stretched the whole row and left lit empty
    panels beside it. align-items:start keeps every card at its own height. */
-.cases{display:grid;grid-template-columns:repeat(3,1fr);
-  gap:14px;background:none;border:none;align-items:start}
-.case{border:1px solid var(--line);background:var(--panel);
+/* Column flow, not a grid: in a grid every cell shares a row, so opening one
+   card pushed the entire row below it. In columns a card only moves what sits
+   under it in its own column, which is what a reader expects. */
+.cases{display:block;column-count:3;column-gap:14px;background:none;border:none}
+.case{break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid;
+  display:inline-block;width:100%;margin-bottom:14px;
+  border:1px solid var(--line);background:var(--panel);
   opacity:0;transform:translateY(16px);
   transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1),border-color .3s ease}
 .case.in{opacity:1;transform:none}
@@ -340,8 +344,8 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
 @media(prefers-reduced-motion:reduce){
   .case{opacity:1;transform:none;transition:none}
 }
-@media(max-width:1080px){.cases{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:720px){.cases{grid-template-columns:1fr}}
+@media(max-width:1080px){.cases{column-count:2}}
+@media(max-width:720px){.cases{column-count:1}}
 
 /* ---------- proof strip: the numbers a visitor should leave with ---------- */
 .proof{padding-block:clamp(24px,3vw,38px);
