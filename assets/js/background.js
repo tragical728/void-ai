@@ -5,8 +5,9 @@ window.VOID = window.VOID || {};
 (function(){
   var TAU = Math.PI*2;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ej stays 0: the field no longer reacts to the pointer, but the object's
+     renderer still reads it, so the flare terms simply resolve to their base. */
   var HOLE  = {x:-9999,y:-9999,R:0,on:false,ej:0,op:0};
-  var mouse = {x:-2000,y:-2000};
   var THEME = 'dark';
 
   /* Fill rate, not draw calls, is what stalls weak hardware: both canvases are
@@ -52,14 +53,13 @@ window.VOID = window.VOID || {};
     var ctx = c.getContext('2d');
     if(!ctx) return;
     var w=0,h=0,dpr=1,parts=[],raf=0;
-    var held=[], MAXHELD=0, ej=0, slow=0, lastT=performance.now();
-    var COUNT=760, RADIUS=260, VORTEX=.07, PULL=.12;
+    var slow=0, lastT=performance.now();
+    var COUNT=880;
 
     function P(){ this.reset(); }
     P.prototype.reset = function(){
       this.x = Math.random()*w; this.y = Math.random()*h;
       this.hx = this.x; this.hy = this.y;          /* where it drifts back to */
-      this.held = false;
       this.size = Math.random()*1.5 + .5;
       this.vx = (Math.random()-.5)*.2; this.vy = (Math.random()-.5)*.2;
       this.bright = Math.random() > .72;
@@ -72,15 +72,7 @@ window.VOID = window.VOID || {};
     P.prototype.recolor = function(){ this.color = pal().dust[this.bright?1:0]; };
 
     P.prototype.step = function(){
-      if(this.held) return;
-      var dx = mouse.x-this.x, dy = mouse.y-this.y;
-      var d = Math.sqrt(dx*dx+dy*dy) || 1;
-      if(d < RADIUS){
-        var f = (RADIUS-d)/RADIUS;
-        this.vx += (dx/d)*f*PULL;  this.vy += (dy/d)*f*PULL;
-        this.vx += (dy/d)*f*VORTEX*10; this.vy -= (dx/d)*f*VORTEX*10;
-        this.glow = f*.7;
-      } else { this.glow *= .92; }
+      this.glow *= .92;
 
       if(HOLE.on){
         var gx = HOLE.x-this.x, gy = HOLE.y-this.y;
@@ -88,12 +80,11 @@ window.VOID = window.VOID || {};
         var GR = HOLE.R*3.5;
         if(gd < GR){
           var pull = HOLE.R*0.14/(gd + HOLE.R*0.65);
-          var dir  = 1 - 2*ej;                       /* +1 pulls in, -1 pushes back out */
-          this.vx += (gx/gd)*pull*dir;  this.vy += (gy/gd)*pull*dir;
-          var sw = pull*.6*(1-ej*.7);
-          this.vx += (-gy/gd)*sw;       this.vy += (gx/gd)*sw;
-          this.glow = Math.max(this.glow, Math.min(.6, (GR-gd)/GR*(.42+ej*.5)));
-          if(gd < HOLE.R*1.04 && ej < .3){ this.swallow(); return; }
+          this.vx += (gx/gd)*pull;  this.vy += (gy/gd)*pull;
+          var sw = pull*.6;                          /* orbital swirl on the way in */
+          this.vx += (-gy/gd)*sw;   this.vy += (gx/gd)*sw;
+          this.glow = Math.max(this.glow, Math.min(.6, (GR-gd)/GR*.42));
+          if(gd < HOLE.R*1.04){ this.swallow(); return; }
         }
       }
 
@@ -111,32 +102,18 @@ window.VOID = window.VOID || {};
       if(this.y > h+20) this.y = -20;
     };
 
-    P.prototype.swallow = function(){
-      if(held.length < MAXHELD){
-        this.held = true; this.heldAt = performance.now();
-        this.x = -9999; this.y = -9999; this.glow = 0;
-        held.push(this); return;
-      }
-      this.edge();
-    };
-    /* released at the horizon: a hard burst on hover, a quiet drift otherwise */
-    P.prototype.eject = function(force){
-      this.held = false;
-      var ang = Math.random()*TAU;
-      var rr  = HOLE.R*(0.96 + Math.random()*0.20);
-      var sp  = 0.7 + force*(2.6 + Math.random()*4.4);
-      this.x  = HOLE.x + Math.cos(ang)*rr;
-      this.y  = HOLE.y + Math.sin(ang)*rr;
-      this.vx = Math.cos(ang)*sp; this.vy = Math.sin(ang)*sp;
-      this.bright = true; this.recolor();
-      this.alpha = .34; this.glow = .55 + force*.45;
-    };
+    /* Nothing is ever parked off-screen: what crosses the horizon re-enters at a
+       random edge and drifts back to a fresh home. That keeps the count on screen
+       constant and the field fed from all four sides instead of thinning out
+       around the object. */
+    P.prototype.swallow = function(){ this.edge(); };
     P.prototype.edge = function(){
       var side = Math.random()*4|0, m = 24;
       if(side===0){ this.x=-m; this.y=Math.random()*h; }
       else if(side===1){ this.x=w+m; this.y=Math.random()*h; }
       else if(side===2){ this.x=Math.random()*w; this.y=-m; }
       else { this.x=Math.random()*w; this.y=h+m; }
+      this.hx = Math.random()*w; this.hy = Math.random()*h;
       this.vx=(Math.random()-.5)*.3; this.vy=(Math.random()-.5)*.3; this.glow=0;
     };
     /* no per-particle shadowBlur: it is the single most expensive canvas op and
@@ -150,7 +127,6 @@ window.VOID = window.VOID || {};
       for(i=0;i<bins.length;i++) bins[i].length = 0;
       for(i=0;i<parts.length;i++){
         var p = parts[i];
-        if(p.held) continue;
         var a = p.alpha + p.glow;
         if(a > .9) a = .9;
         if(a < .02) continue;
@@ -190,8 +166,7 @@ window.VOID = window.VOID || {};
       ctx.setTransform(dpr,0,0,dpr,0,0);
       ground();
       var n = Math.round(COUNT * (w < 700 ? .40 : w < 1100 ? .70 : 1) * PERF.tier);
-      parts = []; held = []; ej = 0;
-      MAXHELD = Math.round(n*0.3);
+      parts = [];
       for(var i=0;i<n;i++) parts.push(new P());
       if(reduce){ ground(); paint(); }
     }
@@ -204,26 +179,10 @@ window.VOID = window.VOID || {};
       ctx.fillStyle = pal().wipe;
       ctx.fillRect(0,0,w,h);
 
-      var over = false;
-      if(HOLE.on && HOLE.R){
-        var mx = mouse.x-HOLE.x, my = mouse.y-HOLE.y, rr = HOLE.R*1.9;
-        over = (mx*mx + my*my) < rr*rr;
-      }
       var now = performance.now();
       var dt  = Math.min((now-lastT)/1000, .1);
       lastT = now;
-      ej += ((over?1:0) - ej) * Math.min(1, dt*5);
-      if(ej < .002) ej = 0;
-      HOLE.ej = ej;
 
-      if(ej > .15 && held.length){
-        var out = Math.ceil(ej * dt * 900);
-        while(out-- > 0 && held.length) held.pop().eject(1);
-      } else if(held.length){
-        for(var q=held.length-1;q>=0;q--){
-          if(now - held[q].heldAt > 1500) held.splice(q,1)[0].eject(.25);
-        }
-      }
       for(var i=0;i<parts.length;i++) parts[i].step();
       paint();
 
@@ -231,22 +190,13 @@ window.VOID = window.VOID || {};
       slow = dt > 0.028 ? slow+1 : 0;
       if(slow > 45 && PERF.tier > 0.45){
         PERF.tier = PERF.tier > 0.75 ? 0.7 : 0.45;   /* the hole thins out too */
-        if(parts.length > 240){
-          parts.splice(0, Math.round(parts.length*0.22));
-          MAXHELD = Math.round(parts.length*0.3);
-        }
+        if(parts.length > 240) parts.splice(0, Math.round(parts.length*0.22));
         slow = 0;
       }
       raf = requestAnimationFrame(frame);
     }
 
     window.addEventListener('resize', init);
-    window.addEventListener('mousemove', function(e){ mouse.x=e.clientX; mouse.y=e.clientY; });
-    window.addEventListener('mouseout', function(){ mouse.x=-2000; mouse.y=-2000; });
-    function touch(e){ if(e.touches[0]){ mouse.x=e.touches[0].clientX; mouse.y=e.touches[0].clientY; } }
-    window.addEventListener('touchmove', touch, {passive:true});
-    window.addEventListener('touchstart', touch, {passive:true});
-    window.addEventListener('touchend', function(){ mouse.x=-2000; mouse.y=-2000; }, {passive:true});
     init();
     if(!reduce) frame();
   })();
