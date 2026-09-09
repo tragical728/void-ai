@@ -25,17 +25,17 @@ window.VOID = window.VOID || {};
   var PAL = {
     dark:{
       wipe:'rgba(4,9,12,.19)',
-      dust:['62,80,86','86,214,196'],
-      spark:'86,214,196',
-      hot:'224,252,246', warm:'128,226,212', cool:'96,140,152',
+      dust:['58,74,80','74,190,172'],
+      spark:'74,190,172',
+      hot:'206,240,234', warm:'112,204,190', cool:'88,128,140',
       core:'1,3,4', jets:false, add:true, gain:1
     },
     light:{
       wipe:'rgba(237,242,240,.20)',
       dust:['138,152,150','12,60,54'],
-      spark:'10,111,98',
-      hot:'8,24,22', warm:'16,72,66', cool:'92,116,120',
-      core:'237,242,240', jets:true, add:false, gain:3.0
+      spark:'7,86,76',
+      hot:'6,20,18', warm:'12,62,56', cool:'86,108,112',
+      core:'237,242,240', jets:true, add:false, gain:2.5
     }
   };
   function pal(){ return PAL[THEME]; }

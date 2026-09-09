@@ -3,7 +3,7 @@
 window.I18N = {};
 window.I18N.en = {
 nav1:"What we build",nav2:"The leak",nav3:"Cases",nav4:"Process",nav5:"The maths",navcta:"Contact",
-heroEyebrow:"AUTOMATION · MARKETING · DEVELOPMENT",
+heroEyebrow:"AUTOMATION  MARKETING  DEVELOPMENT",
 heroTitle:"28 days<br>to the first result",
 heroLead:"AI agents for daily operations, Telegram bots and mini-apps, landing pages built or repaired, and the lead strategy behind them. Fixed scope, fixed price, and a working system in your hands on day 28.",
 heroNote:"Shadow mode first. You keep the build.",
@@ -79,7 +79,7 @@ footRights:"All rights reserved."
 
 window.I18N.ru = {
 nav1:"Что мы делаем",nav2:"Утечка",nav3:"Кейсы",nav4:"Процесс",nav5:"Расчёт",navcta:"Связаться",
-heroEyebrow:"АВТОМАТИЗАЦИЯ · МАРКЕТИНГ · РАЗРАБОТКА",
+heroEyebrow:"АВТОМАТИЗАЦИЯ  МАРКЕТИНГ  РАЗРАБОТКА",
 heroTitle:"28 дней<br>до первого результата",
 heroLead:"ИИ-агенты для повседневных задач, боты и мини-аппы Telegram, лендинги под ключ и починка существующих, стратегия привлечения клиентов. Фиксированный объём, фиксированная цена, работающая система у вас на 28-й день.",
 heroNote:"Сначала теневой режим. Сборка остаётся у вас.",
@@ -155,7 +155,7 @@ footRights:"Все права защищены."
 
 window.I18N.es = {
 nav1:"Qué construimos",nav2:"La fuga",nav3:"Casos",nav4:"Proceso",nav5:"Los números",navcta:"Contacto",
-heroEyebrow:"AUTOMATIZACIÓN · MARKETING · DESARROLLO",
+heroEyebrow:"AUTOMATIZACIÓN  MARKETING  DESARROLLO",
 heroTitle:"28 días<br>hasta el primer resultado",
 heroLead:"Agentes de IA para el día a día, bots y mini-apps de Telegram, landing pages nuevas o reparadas, y la estrategia de captación que hay detrás. Alcance cerrado, precio cerrado y un sistema funcionando en tus manos el día 28.",
 heroNote:"Primero en modo sombra. La construcción es tuya.",
@@ -231,7 +231,7 @@ footRights:"Todos los derechos reservados."
 
 window.I18N.de = {
 nav1:"Was wir bauen",nav2:"Das Leck",nav3:"Fälle",nav4:"Ablauf",nav5:"Die Rechnung",navcta:"Kontakt",
-heroEyebrow:"AUTOMATISIERUNG · MARKETING · ENTWICKLUNG",
+heroEyebrow:"AUTOMATISIERUNG  MARKETING  ENTWICKLUNG",
 heroTitle:"28 Tage<br>bis zum ersten Ergebnis",
 heroLead:"KI-Agenten für den Alltagsbetrieb, Telegram-Bots und Mini-Apps, Landingpages neu gebaut oder repariert, dazu die Lead-Strategie dahinter. Fester Umfang, fester Preis und ein laufendes System in Ihren Händen am Tag 28.",
 heroNote:"Zuerst im Schattenbetrieb. Der Bau gehört Ihnen.",
@@ -307,7 +307,7 @@ footRights:"Alle Rechte vorbehalten."
 
 window.I18N.zh = {
 nav1:"我们做什么",nav2:"流失",nav3:"案例",nav4:"流程",nav5:"算一笔账",navcta:"联系我们",
-heroEyebrow:"自动化 · 市场增长 · 开发",
+heroEyebrow:"自动化  市场增长  开发",
 heroTitle:"28 天<br>见到第一个结果",
 heroLead:"面向日常业务的 AI 智能体、Telegram 机器人与小程序、新建或修复落地页，以及背后的获客策略。范围固定，价格固定，第 28 天交到你手上的是一套跑起来的系统。",
 heroNote:"先跑影子模式。成果归你所有。",

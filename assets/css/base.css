@@ -57,4 +57,14 @@ main > section.proof{background:rgba(var(--scrim),.9)}
 /* the cases section fell on the lighter alternating tone, which read as a grey
    plate behind the cards; it takes the base ground like its neighbours */
 main > section#cases{background:rgba(var(--scrim),.76)}
+/* Light theme: the field is ink on paper, so anything showing through a section
+   lands straight on top of the words. The grounds go nearly solid there, and the
+   field itself is dimmed behind the copy rather than only veiled. */
+:root[data-theme="light"] main > section:not(.hero){background:rgba(var(--scrim),.95)}
+:root[data-theme="light"] main > section:nth-of-type(even){background:rgba(var(--scrim2),.95)}
+:root[data-theme="light"] main > section#cases{background:rgba(var(--scrim),.95)}
+:root[data-theme="light"] main > section.proof{background:rgba(var(--scrim),.97)}
+:root[data-theme="light"] main > section#contact{
+  background:linear-gradient(180deg,rgba(var(--scrim),.96) 0%,
+    rgba(var(--scrim),.96) 55%,rgba(var(--scrim),.55) 100%)}
 .sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:clamp(26px,3.4vw,44px);max-width:74ch}

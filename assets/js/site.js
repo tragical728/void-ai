@@ -107,6 +107,27 @@
     for(var j=0;j<items.length;j++){ items[j].setAttribute('data-delay', 100 + j*90); io.observe(items[j]); }
   })();
 
+  /* ================= the stage fan ================= */
+  /* One observer on the rack, not on each sheet: the stagger is a CSS delay
+     keyed off --i, so the sheets stay in step whatever order the observer
+     happens to fire in. */
+  (function fan(){
+    var rack = document.querySelector('.fan');
+    if(!rack) return;
+    if(!('IntersectionObserver' in window) || reduce) return;   /* stays open */
+    rack.classList.add('armed');
+    var opened = false;
+    function open(){ if(!opened){ opened = true; rack.classList.add('on'); } }
+    var io = new IntersectionObserver(function(es){
+      for(var i=0;i<es.length;i++){
+        if(es[i].isIntersecting){ open(); io.disconnect(); return; }
+      }
+    }, {threshold:.2});
+    io.observe(rack);
+    /* belt and braces: whatever happens to the observer, the sheets open */
+    setTimeout(open, 4000);
+  })();
+
   /* ================= controls ================= */
   var stored = recall('void-theme');
   VOID.setTheme(stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'), true);
