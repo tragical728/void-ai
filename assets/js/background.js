@@ -54,7 +54,7 @@ window.VOID = window.VOID || {};
     if(!ctx) return;
     var w=0,h=0,dpr=1,parts=[],raf=0;
     var slow=0, lastT=performance.now();
-    var COUNT=880;
+    var COUNT=1040;
 
     function P(){ this.reset(); }
     P.prototype.reset = function(){
@@ -64,7 +64,9 @@ window.VOID = window.VOID || {};
       this.vx = (Math.random()-.5)*.2; this.vy = (Math.random()-.5)*.2;
       this.bright = Math.random() > .72;
       this.color = pal().dust[this.bright?1:0];
-      this.alpha = Math.random()*.36 + .1;
+      this.alpha0 = Math.random()*.36 + .1;
+      this.alpha = this.alpha0;
+      this.fade = 1;                               /* 0..1, ramps a re-seeded speck in */
       this.rot = Math.random()*TAU;
       this.spin = (Math.random()-.5)*.05;
       this.glow = 0;
@@ -73,6 +75,11 @@ window.VOID = window.VOID || {};
 
     P.prototype.step = function(){
       this.glow *= .92;
+      if(this.fade < 1){
+        this.fade += .035;
+        if(this.fade > 1) this.fade = 1;
+        this.alpha = this.alpha0 * this.fade;
+      }
 
       if(HOLE.on){
         var gx = HOLE.x-this.x, gy = HOLE.y-this.y;
@@ -81,7 +88,7 @@ window.VOID = window.VOID || {};
         if(gd < GR){
           var pull = HOLE.R*0.14/(gd + HOLE.R*0.65);
           this.vx += (gx/gd)*pull;  this.vy += (gy/gd)*pull;
-          var sw = pull*.6;                          /* orbital swirl on the way in */
+          var sw = pull*.32;                         /* orbital swirl on the way in */
           this.vx += (-gy/gd)*sw;   this.vy += (gx/gd)*sw;
           this.glow = Math.max(this.glow, Math.min(.6, (GR-gd)/GR*.42));
           if(gd < HOLE.R*1.04){ this.swallow(); return; }
@@ -102,19 +109,31 @@ window.VOID = window.VOID || {};
       if(this.y > h+20) this.y = -20;
     };
 
-    /* Nothing is ever parked off-screen: what crosses the horizon re-enters at a
-       random edge and drifts back to a fresh home. That keeps the count on screen
-       constant and the field fed from all four sides instead of thinning out
-       around the object. */
-    P.prototype.swallow = function(){ this.edge(); };
-    P.prototype.edge = function(){
-      var side = Math.random()*4|0, m = 24;
-      if(side===0){ this.x=-m; this.y=Math.random()*h; }
-      else if(side===1){ this.x=w+m; this.y=Math.random()*h; }
-      else if(side===2){ this.x=Math.random()*w; this.y=-m; }
-      else { this.x=Math.random()*w; this.y=h+m; }
-      this.hx = Math.random()*w; this.hy = Math.random()*h;
-      this.vx=(Math.random()-.5)*.3; this.vy=(Math.random()-.5)*.3; this.glow=0;
+    /* Nothing is ever parked off-screen. What crosses the horizon comes straight
+       back, and it comes back anywhere on the page rather than only at the four
+       edges: the infall spirals, so an edge-only refill leaves the leading side
+       of the spiral swept bare while the trailing side piles up. Re-seeding over
+       the whole area keeps the field even whatever the flow does. It fades in
+       over about a third of a second, so nothing pops into existence. */
+    P.prototype.swallow = function(){ this.reseed(); };
+    P.prototype.reseed = function(){
+      /* Put it back inside the zone the object actually empties, not anywhere on
+         the page. Spreading re-entries over the whole viewport refills the calm
+         outer field, which never lost anything, and starves the disturbed middle,
+         which loses everything: that is what left the corridor above and below
+         the object bare. Sampling inside the pull radius returns each speck to
+         where one was just taken from, at a random angle, so every side is fed
+         at the rate it is drained. */
+      var keep = HOLE.R*1.3, GR = HOLE.on ? HOLE.R*3.5 : 0, x, y, dx, dy, d2;
+      for(var t=0; t<24; t++){
+        x = Math.random()*w; y = Math.random()*h;
+        dx = x-HOLE.x; dy = y-HOLE.y; d2 = dx*dx + dy*dy;
+        if(!GR) break;
+        if(d2 > keep*keep && d2 < GR*GR) break;
+      }
+      this.x = this.hx = x; this.y = this.hy = y;
+      this.vx=(Math.random()-.5)*.3; this.vy=(Math.random()-.5)*.3;
+      this.glow = 0; this.fade = 0; this.alpha = 0;
     };
     /* no per-particle shadowBlur: it is the single most expensive canvas op and
        hovering lit up hundreds of them at once. Shards are batched into a handful
