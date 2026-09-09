@@ -54,7 +54,8 @@ window.VOID = window.VOID || {};
     if(!ctx) return;
     var w=0,h=0,dpr=1,parts=[],raf=0;
     var slow=0, lastT=performance.now();
-    var COUNT=1040;
+    var COUNT=1000;
+    var BASE=0, fast=0;
 
     function P(){ this.reset(); }
     P.prototype.reset = function(){
@@ -117,24 +118,25 @@ window.VOID = window.VOID || {};
        over about a third of a second, so nothing pops into existence. */
     P.prototype.swallow = function(){ this.reseed(); };
     P.prototype.reseed = function(){
-      /* Put it back inside the zone the object actually empties, not anywhere on
-         the page. Spreading re-entries over the whole viewport refills the calm
-         outer field, which never lost anything, and starves the disturbed middle,
-         which loses everything: that is what left the corridor above and below
-         the object bare. Sampling inside the pull radius returns each speck to
-         where one was just taken from, at a random angle, so every side is fed
-         at the rate it is drained. */
-      var keep = HOLE.R*1.3, GR = HOLE.on ? HOLE.R*3.5 : 0, x, y, dx, dy, d2;
-      for(var t=0; t<24; t++){
-        x = Math.random()*w; y = Math.random()*h;
-        dx = x-HOLE.x; dy = y-HOLE.y; d2 = dx*dx + dy*dy;
-        if(!GR) break;
-        if(d2 > keep*keep && d2 < GR*GR) break;
+      /* Straight back to its own home, which was drawn uniformly at init and is
+         never rewritten. That is the whole point: every scheme that re-homes a
+         speck when it is eaten is a one-way ratchet, because only specks inside
+         the pull radius are ever eaten. Re-homing them inward empties the edges
+         over a long visit, re-homing them outward empties the middle, and both
+         look like a patch of background going bare after a few minutes. Fixed
+         homes cannot drift either way. */
+      var x = this.hx + (Math.random()-.5)*90,
+          y = this.hy + (Math.random()-.5)*90;
+      if(HOLE.on){
+        var dx = x-HOLE.x, dy = y-HOLE.y, d = Math.sqrt(dx*dx+dy*dy) || 1,
+            keep = HOLE.R*1.35;
+        if(d < keep){ x = HOLE.x + dx/d*keep; y = HOLE.y + dy/d*keep; }
       }
-      this.x = this.hx = x; this.y = this.hy = y;
+      this.x = x; this.y = y;
       this.vx=(Math.random()-.5)*.3; this.vy=(Math.random()-.5)*.3;
       this.glow = 0; this.fade = 0; this.alpha = 0;
     };
+
     /* no per-particle shadowBlur: it is the single most expensive canvas op and
        hovering lit up hundreds of them at once. Shards are batched into a handful
        of fills instead, bucketed by alpha. */
@@ -173,6 +175,14 @@ window.VOID = window.VOID || {};
       }
     }
 
+    function fit(){
+      var want = Math.max(120, Math.round(BASE*PERF.tier));
+      while(parts.length > want) parts.pop();
+      while(parts.length < want){
+        var p = new P(); p.fade = 0; p.alpha = 0; parts.push(p);
+      }
+    }
+
     function ground(){
       var css = getComputedStyle(document.body).backgroundColor;
       ctx.fillStyle = css || (THEME==='light' ? '#EEEBE5' : '#050506');
@@ -184,9 +194,9 @@ window.VOID = window.VOID || {};
       c.width = w*dpr; c.height = h*dpr;
       ctx.setTransform(dpr,0,0,dpr,0,0);
       ground();
-      var n = Math.round(COUNT * (w < 700 ? .40 : w < 1100 ? .70 : 1) * PERF.tier);
+      BASE = Math.round(COUNT * (w < 700 ? .40 : w < 1100 ? .70 : 1));
       parts = [];
-      for(var i=0;i<n;i++) parts.push(new P());
+      for(var i=0, n=Math.round(BASE*PERF.tier); i<n; i++) parts.push(new P());
       if(reduce){ ground(); paint(); }
     }
     window.__voidRepaint = function(){
@@ -205,12 +215,18 @@ window.VOID = window.VOID || {};
       for(var i=0;i<parts.length;i++) parts[i].step();
       paint();
 
-      /* if a machine cannot hold the frame, quietly thin the field instead of stuttering */
-      slow = dt > 0.028 ? slow+1 : 0;
-      if(slow > 45 && PERF.tier > 0.45){
-        PERF.tier = PERF.tier > 0.75 ? 0.7 : 0.45;   /* the hole thins out too */
-        if(parts.length > 240) parts.splice(0, Math.round(parts.length*0.22));
-        slow = 0;
+      /* If a machine cannot hold the frame, thin the field instead of stuttering,
+         and give it back once the machine proves it can keep up: this used to be
+         one-way, so a few rough seconds emptied the background permanently. The
+         bar for thinning is a sustained second below 30fps, not a hiccup. */
+      slow = dt > 0.033 ? slow+1 : 0;
+      fast = dt < 0.0225 ? fast+1 : 0;
+      if(slow > 60 && PERF.tier > 0.45){
+        PERF.tier = PERF.tier > 0.75 ? 0.7 : 0.45;   /* the object thins out too */
+        slow = 0; fast = 0; fit();
+      } else if(fast > 1200 && PERF.tier < 1){
+        PERF.tier = PERF.tier < 0.6 ? 0.7 : 1;
+        slow = 0; fast = 0; fit();
       }
       raf = requestAnimationFrame(frame);
     }
