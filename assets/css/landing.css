@@ -39,8 +39,8 @@
 .row::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:0;
   background:linear-gradient(90deg,var(--accent),transparent);transition:width .5s cubic-bezier(.2,.7,.2,1)}
 .row:hover::before{width:100%}
-.row:hover{background:linear-gradient(90deg,rgba(198,232,236,.05),transparent 70%)}
-:root[data-theme="light"] .row:hover{background:linear-gradient(90deg,rgba(10,30,32,.045),transparent 70%)}
+.row:hover{background:linear-gradient(90deg,rgba(206,222,240,.05),transparent 70%)}
+:root[data-theme="light"] .row:hover{background:linear-gradient(90deg,rgba(12,17,22,.045),transparent 70%)}
 .row-tag{font-size:.85rem;color:var(--muted)}
 .row p{color:var(--muted);font-size:.97rem}
 @media(max-width:860px){.row{grid-template-columns:1fr;gap:9px;padding-block:22px}}
@@ -75,20 +75,18 @@
 @media(max-width:820px){.cases{grid-template-columns:1fr}}
 
 /* ---------- process ---------- */
-/* The four stages are a fan of glass leaves seen slightly from the side, like
-   sheets standing in a rack. Each one is turned a little less than the one
-   before and sits a little further back, so the row reads as a stack being
-   opened rather than four identical boxes. The turn is kept small on purpose:
-   at 17 degrees the first sheet's text was visibly squeezed against its left
-   edge, so the fan runs 14 to 5. */
+/* The four stages are glass sheets seen slightly from the side, like panes
+   standing in a rack. They all carry the same gentle seven-degree turn: a fan
+   of different angles looked accidental rather than designed, and the sheet at
+   the wide end had its text visibly squeezed against the left edge. */
 .fan{list-style:none;margin:0;padding:0;
   display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
   gap:clamp(8px,1.1vw,18px);
   perspective:1700px;perspective-origin:46% 42%}
 
 .leaf{position:relative;transform-style:preserve-3d;
-  --ry:calc(-14deg + var(--i) * 3deg);          /* -14, -11, -8, -5 */
-  --tz:calc(46px - var(--i) * 22px);            /* front leaf nearest */
+  --ry:-7deg;                                   /* the same gentle turn on all four */
+  --tz:0px;
   --lift:0px;
   transform:rotateY(var(--ry)) translateZ(var(--tz)) translateY(var(--lift));
   transition:transform .6s cubic-bezier(.19,.72,.22,1), opacity .6s ease;
@@ -104,13 +102,13 @@
   display:flex;flex-direction:column;gap:9px;
   padding:clamp(20px,2.1vw,30px) clamp(18px,1.9vw,26px);
   border-radius:6px 20px 20px 6px;
-  border:1px solid rgba(198,232,236,.13);
-  border-left-color:rgba(198,232,236,.22);
+  border:1px solid rgba(206,222,240,.13);
+  border-left-color:rgba(206,222,240,.22);
   background:
-    linear-gradient(107deg,rgba(198,232,236,.13) 0%,rgba(198,232,236,.055) 42%,
-                    rgba(198,232,236,.035) 68%,rgba(198,232,236,.10) 100%);
+    linear-gradient(107deg,rgba(206,222,240,.13) 0%,rgba(206,222,240,.055) 42%,
+                    rgba(206,222,240,.035) 68%,rgba(206,222,240,.10) 100%);
   box-shadow:0 26px 50px -34px rgba(0,0,0,.95),
-             inset 0 1px 0 rgba(224,248,250,.09);
+             inset 0 1px 0 rgba(226,238,252,.09);
   /* no backdrop-filter on purpose: four full-width blurred panes sampling a
      canvas that repaints every frame is exactly the kind of thing that made
      this site stutter before. The gradient carries the glass on its own. */
@@ -118,16 +116,16 @@
 /* the curl of light down the trailing edge, as on a bent sheet */
 .leaf-face::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38%;
   border-radius:inherit;pointer-events:none;
-  background:linear-gradient(90deg,transparent,rgba(214,244,246,.055) 62%,rgba(214,244,246,.10));
+  background:linear-gradient(90deg,transparent,rgba(222,236,250,.055) 62%,rgba(222,236,250,.10));
   opacity:.85;transition:opacity .45s ease}
 
 /* the lit spine each sheet stands on */
 .leaf-spine{position:absolute;left:-1px;top:8%;bottom:8%;width:2px;border-radius:2px;
   background:linear-gradient(180deg,transparent,var(--accent) 30%,var(--accent) 70%,transparent);
-  opacity:calc(.62 - var(--i) * .11);transition:opacity .45s ease}
+  opacity:.6;transition:opacity .45s ease}
 
 .leaf .n{font-family:"IBM Plex Mono",Menlo,monospace;font-size:.72rem;
-  color:var(--accent);letter-spacing:.2em;opacity:calc(1 - var(--i) * .1)}
+  color:var(--accent);letter-spacing:.2em}
 .leaf h3{font-size:clamp(1.05rem,1.5vw,1.32rem)}
 .leaf .when{font-size:.78rem;color:var(--faint);font-family:"IBM Plex Mono",Menlo,monospace}
 .leaf p{color:var(--muted);font-size:.92rem;margin-top:2px}
@@ -135,18 +133,18 @@
 /* Pointing at a sheet pulls it square to the reader and lifts it out of the
    rack, and the rest of the rack steps back. The opacity rules are scoped under
    .on because the reveal rule below sets opacity at a higher specificity. */
-.leaf:hover,.leaf:focus-within{--ry:-2deg;--tz:86px;--lift:-10px}
+.leaf:hover,.leaf:focus-within{--ry:-1deg;--tz:64px;--lift:-10px}
 .fan:hover .leaf{opacity:.66}
 .fan .leaf:hover,.fan .leaf:focus-within{opacity:1}
 .fan.armed.on:hover .leaf{opacity:.66}
 .fan.armed.on .leaf:hover,.fan.armed.on .leaf:focus-within{opacity:1}
 .leaf:hover .leaf-face,.leaf:focus-within .leaf-face{
-  border-color:rgba(198,232,236,.26);
+  border-color:rgba(206,222,240,.26);
   background:
-    linear-gradient(107deg,rgba(198,232,236,.15) 0%,rgba(198,232,236,.06) 42%,
-                    rgba(198,232,236,.03) 68%,rgba(198,232,236,.11) 100%);
+    linear-gradient(107deg,rgba(206,222,240,.15) 0%,rgba(206,222,240,.06) 42%,
+                    rgba(206,222,240,.03) 68%,rgba(206,222,240,.11) 100%);
   box-shadow:0 34px 60px -30px rgba(0,0,0,.95),
-             inset 0 1px 0 rgba(224,248,250,.16)}
+             inset 0 1px 0 rgba(226,238,252,.16)}
 .leaf:hover .leaf-spine,.leaf:focus-within .leaf-spine{opacity:.95}
 
 /* The closed state is opt-in: script adds .armed, and only then do the sheets
@@ -154,7 +152,7 @@
    observer that never fires (a hidden tab at load, a browser without
    IntersectionObserver, a script error) would leave a whole section of the page
    invisible - which is exactly what it did in testing. */
-.fan.armed .leaf{opacity:0;transform:rotateY(-42deg) translateZ(-40px) translateX(-34px)}
+.fan.armed .leaf{opacity:0;transform:rotateY(-34deg) translateZ(-40px) translateX(-26px)}
 .fan.armed.on .leaf{opacity:1;
   transform:rotateY(var(--ry)) translateZ(var(--tz)) translateY(var(--lift));
   transition-delay:calc(var(--i) * 110ms)}
@@ -186,9 +184,9 @@
   font-variant-numeric:tabular-nums;color:var(--text)}
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:1px;background:var(--line-strong);cursor:pointer}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;
-  background:var(--text);box-shadow:0 0 0 4px rgba(198,232,236,.18);cursor:grab}
+  background:var(--text);box-shadow:0 0 0 4px rgba(206,222,240,.18);cursor:grab}
 input[type=range]::-moz-range-thumb{width:13px;height:13px;border:none;border-radius:50%;
-  background:var(--text);box-shadow:0 0 0 4px rgba(198,232,236,.18);cursor:grab}
+  background:var(--text);box-shadow:0 0 0 4px rgba(206,222,240,.18);cursor:grab}
 .readout{display:flex;flex-direction:column;gap:20px;justify-content:center}
 .big{font-family:"Onest",Helvetica,sans-serif;font-weight:200;font-size:clamp(2.8rem,6.5vw,4.7rem);
   line-height:.98;letter-spacing:-.045em;font-variant-numeric:tabular-nums}
@@ -232,17 +230,17 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
 
 /* the process is a 28-day bar, not four paragraphs */
 :root[data-theme="light"] .leaf-face{
-  border-color:rgba(10,30,32,.16);border-left-color:rgba(10,30,32,.3);
+  border-color:rgba(12,17,22,.16);border-left-color:rgba(12,17,22,.3);
   background:linear-gradient(107deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.72) 46%,
                              rgba(255,255,255,.6) 72%,rgba(255,255,255,.86) 100%);
-  box-shadow:0 22px 40px -32px rgba(10,30,32,.55),inset 0 1px 0 rgba(255,255,255,.9)}
+  box-shadow:0 22px 40px -32px rgba(12,17,22,.55),inset 0 1px 0 rgba(255,255,255,.9)}
 :root[data-theme="light"] .leaf-face::after{
-  background:linear-gradient(90deg,transparent,rgba(10,30,32,.03) 62%,rgba(10,30,32,.055))}
+  background:linear-gradient(90deg,transparent,rgba(12,17,22,.03) 62%,rgba(12,17,22,.055))}
 :root[data-theme="light"] .leaf:hover .leaf-face,
 :root[data-theme="light"] .leaf:focus-within .leaf-face{
-  border-color:rgba(10,30,32,.3);
+  border-color:rgba(12,17,22,.3);
   background:linear-gradient(107deg,#fff 0%,rgba(255,255,255,.9) 60%,#fff 100%);
-  box-shadow:0 30px 52px -28px rgba(10,30,32,.6),inset 0 1px 0 #fff}
+  box-shadow:0 30px 52px -28px rgba(12,17,22,.6),inset 0 1px 0 #fff}
 :root[data-theme="light"] .leaf .n{font-weight:500}
 :root[data-theme="light"] .leaf .when{color:var(--muted)}
 

@@ -24,18 +24,18 @@ window.VOID = window.VOID || {};
   /* ================= theme ================= */
   var PAL = {
     dark:{
-      wipe:'rgba(4,9,12,.19)',
-      dust:['58,74,80','74,190,172'],
-      spark:'74,190,172',
-      hot:'206,240,234', warm:'112,204,190', cool:'88,128,140',
-      core:'1,3,4', jets:false, add:true, gain:1
+      wipe:'rgba(7,10,15,.19)',
+      dust:['60,70,84','124,160,190'],
+      spark:'124,160,190',
+      hot:'212,228,244', warm:'138,174,204', cool:'92,116,140',
+      core:'2,3,5', jets:false, add:true, gain:1
     },
     light:{
-      wipe:'rgba(237,242,240,.20)',
-      dust:['138,152,150','12,60,54'],
-      spark:'7,86,76',
-      hot:'6,20,18', warm:'12,62,56', cool:'86,108,112',
-      core:'237,242,240', jets:true, add:false, gain:2.5
+      wipe:'rgba(240,241,243,.20)',
+      dust:['142,150,160','24,44,62'],
+      spark:'47,91,126',
+      hot:'8,16,22', warm:'22,52,76', cool:'90,106,122',
+      core:'240,241,243', jets:true, add:false, gain:2.5
     }
   };
   function pal(){ return PAL[THEME]; }
@@ -185,7 +185,7 @@ window.VOID = window.VOID || {};
 
     function ground(){
       var css = getComputedStyle(document.body).backgroundColor;
-      ctx.fillStyle = css || (THEME==='light' ? '#EDF2F0' : '#04090C');
+      ctx.fillStyle = css || (THEME==='light' ? '#F0F1F3' : '#070A0F');
       ctx.fillRect(0,0,w,h);
     }
     function init(){

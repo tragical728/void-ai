@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-build="43">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,11 +15,22 @@
 <meta property="og:image" content="https://tragical728.github.io/void-ai/assets/img/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="assets/img/favicon.svg?v=42" type="image/svg+xml">
-<link rel="icon" href="assets/img/favicon-32.png?v=42" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=42">
+<link rel="icon" href="assets/img/favicon.svg?v=43" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png?v=43" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=43">
 <link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#04090C">
+<meta name="theme-color" content="#070A0F">
+
+<script>/* GitHub Pages serves this HTML with max-age=600, so a plain reload can hand back
+   a ten-minute-old page pointing at asset versions that have since moved on. Ask
+   the server for the current build once, and re-fetch under a fresh URL if this
+   copy is behind. The session key makes a loop impossible: at most one reload. */
+(function(){var B=document.documentElement.getAttribute('data-build');try{
+if(!B||sessionStorage.getItem('void-build')===B)return;
+fetch('build.txt',{cache:'no-store'}).then(function(r){return r.ok?r.text():null;}).then(function(t){
+if(!t)return;t=t.trim();sessionStorage.setItem('void-build',B);
+if(t!==B)location.replace(location.pathname+'?b='+t+location.hash);}).catch(function(){});
+}catch(e){}})();</script>
 
 <script>/* set the theme before first paint so it never flashes */
 (function(){try{var t=localStorage.getItem('void-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
@@ -27,10 +38,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@200;300;400;500&family=Hanken+Grotesk:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/tokens.css?v=42">
-<link rel="stylesheet" href="assets/css/base.css?v=42">
-<link rel="stylesheet" href="assets/css/components.css?v=42">
-<link rel="stylesheet" href="assets/css/landing.css?v=42">
+<link rel="stylesheet" href="assets/css/tokens.css?v=43">
+<link rel="stylesheet" href="assets/css/base.css?v=43">
+<link rel="stylesheet" href="assets/css/components.css?v=43">
+<link rel="stylesheet" href="assets/css/landing.css?v=43">
 
 <!-- WebSite drives the bold site name in Google results; Organization drives the knowledge panel -->
 <script type="application/ld+json">
@@ -550,8 +561,8 @@
 
 </div>
 
-<script src="assets/js/i18n.js?v=42"></script>
-<script src="assets/js/background.js?v=42"></script>
-<script src="assets/js/site.js?v=42"></script>
+<script src="assets/js/i18n.js?v=43"></script>
+<script src="assets/js/background.js?v=43"></script>
+<script src="assets/js/site.js?v=43"></script>
 </body>
 </html>

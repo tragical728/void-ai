@@ -47,10 +47,10 @@
 .f select option{background:var(--panel);color:var(--text)}
 .f input::placeholder,.f textarea::placeholder{color:var(--faint);opacity:.75}
 .f input:focus,.f select:focus,.f textarea:focus{
-  outline:none;border-color:var(--accent);background:rgba(198,232,236,.05)}
+  outline:none;border-color:var(--accent);background:rgba(206,222,240,.05)}
 :root[data-theme="light"] .f input:focus,
 :root[data-theme="light"] .f select:focus,
-:root[data-theme="light"] .f textarea:focus{background:rgba(10,30,32,.04)}
+:root[data-theme="light"] .f textarea:focus{background:rgba(12,17,22,.04)}
 
 .card .sbtn{align-self:flex-start;margin-top:2px}
 .card-note{color:var(--faint);font-size:.8rem;line-height:1.55}

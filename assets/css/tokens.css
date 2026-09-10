@@ -4,63 +4,64 @@
    Two things drive this palette:
    a flat ground with pure white reads as one undifferentiated wall, so surfaces
    are layered (bg -> surface -> panel) and text sits at three weights;
-   and a single teal accent carries every number and action, with one semantic
-   red reserved for what a visitor is currently losing. */
+   and a single muted steel-blue accent carries every number and action, with one
+   semantic red reserved for what a visitor is currently losing. The accent is
+   deliberately low-chroma - a saturated one reads as neon on a dark ground. */
 :root{
-  --bg:#04090C;
-  --surface:#0A1318;
-  --panel:#101C22;
-  --line:rgba(198,232,236,.12);
-  --line-strong:rgba(198,232,236,.22);
-  --text:#DCE7E9;
-  --muted:#9FB2B6;
-  --faint:#7C8F93;
-  --accent:#3BB9A6;
-  --accent-dim:rgba(59,185,166,.15);
-  --warn:#DE6363;
-  --warn-dim:rgba(222,99,99,.15);
-  --scrim:4,9,12;
-  --scrim2:10,19,24;
-  --btn-ring:#1E2C31;
-  --btn-a:#1E2C31;
-  --btn-b:#070F13;
-  --btn-text:#A6B9BD;
+  --bg:#070A0F;
+  --surface:#0E141C;
+  --panel:#151D27;
+  --line:rgba(206,222,240,.12);
+  --line-strong:rgba(206,222,240,.22);
+  --text:#E2E7ED;
+  --muted:#9BA9B8;
+  --faint:#7A8899;
+  --accent:#7FA6C4;
+  --accent-dim:rgba(127,166,196,.16);
+  --warn:#D8706B;
+  --warn-dim:rgba(216,112,107,.15);
+  --scrim:7,10,15;
+  --scrim2:14,20,28;
+  --btn-ring:#222D3A;
+  --btn-a:#222D3A;
+  --btn-b:#0A0E14;
+  --btn-text:#A3B2C1;
   --btn-text-on:#ffffff;
-  --btn-beam:#3BB9A6;
+  --btn-beam:#7FA6C4;
   --btn-inset:rgba(255,255,255,.28);
-  --btn-halo:rgba(59,185,166,.18);
-  --veil-a:rgba(4,9,12,0);
-  --veil-b:rgba(4,9,12,.42);
-  --veil-c:rgba(4,9,12,.72);
+  --btn-halo:rgba(127,166,196,.18);
+  --veil-a:rgba(7,10,15,0);
+  --veil-b:rgba(7,10,15,.42);
+  --veil-c:rgba(7,10,15,.72);
   --gutter:clamp(18px,5vw,64px);
   --max:1180px;
   color-scheme:dark;
 }
 :root[data-theme="light"]{
-  --bg:#EDF2F0;
-  --surface:#E4EBE8;
-  --panel:#F7FAF9;
-  --line:rgba(10,30,32,.15);
-  --line-strong:rgba(10,30,32,.26);
-  --text:#05100F;
-  --muted:#1E3033;
-  --faint:#3B4F52;
-  --accent:#07564C;
-  --accent-dim:rgba(7,86,76,.13);
-  --warn:#A8342E;
-  --warn-dim:rgba(168,52,46,.12);
-  --scrim:237,242,240;
-  --scrim2:228,235,232;
-  --btn-ring:#C9D6D2;
+  --bg:#F0F1F3;
+  --surface:#E6E8EC;
+  --panel:#F9FAFB;
+  --line:rgba(12,17,22,.15);
+  --line-strong:rgba(12,17,22,.26);
+  --text:#0C1116;
+  --muted:#263543;
+  --faint:#43525F;
+  --accent:#2F5B7E;
+  --accent-dim:rgba(47,91,126,.13);
+  --warn:#A33A32;
+  --warn-dim:rgba(163,58,50,.12);
+  --scrim:240,241,243;
+  --scrim2:230,232,236;
+  --btn-ring:#CBD2DA;
   --btn-a:#ffffff;
-  --btn-b:#DCE6E2;
-  --btn-text:#2C3E41;
-  --btn-text-on:#0A1416;
-  --btn-beam:#07564C;
+  --btn-b:#DEE3E9;
+  --btn-text:#33424E;
+  --btn-text-on:#0C1116;
+  --btn-beam:#2F5B7E;
   --btn-inset:rgba(255,255,255,.95);
-  --btn-halo:rgba(7,86,76,.2);
-  --veil-a:rgba(237,242,240,0);
-  --veil-b:rgba(237,242,240,.55);
-  --veil-c:rgba(237,242,240,.82);
+  --btn-halo:rgba(47,91,126,.2);
+  --veil-a:rgba(240,241,243,0);
+  --veil-b:rgba(240,241,243,.55);
+  --veil-c:rgba(240,241,243,.82);
   color-scheme:light;
 }
