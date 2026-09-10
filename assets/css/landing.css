@@ -79,14 +79,15 @@
    sheets standing in a rack. Each one is turned a little less than the one
    before and sits a little further back, so the row reads as a stack being
    opened rather than four identical boxes. The turn is kept small on purpose:
-   past about 18 degrees the text starts to blur on the far edge. */
+   at 17 degrees the first sheet's text was visibly squeezed against its left
+   edge, so the fan runs 14 to 5. */
 .fan{list-style:none;margin:0;padding:0;
   display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
   gap:clamp(8px,1.1vw,18px);
   perspective:1700px;perspective-origin:46% 42%}
 
 .leaf{position:relative;transform-style:preserve-3d;
-  --ry:calc(-17deg + var(--i) * 4deg);          /* -17, -13, -9, -5 */
+  --ry:calc(-14deg + var(--i) * 3deg);          /* -14, -11, -8, -5 */
   --tz:calc(46px - var(--i) * 22px);            /* front leaf nearest */
   --lift:0px;
   transform:rotateY(var(--ry)) translateZ(var(--tz)) translateY(var(--lift));
@@ -432,6 +433,24 @@ details p{color:var(--muted);padding-bottom:24px;max-width:70ch;font-size:.97rem
 .case summary{gap:11px;padding:clamp(20px,2.2vw,26px)}
 .case summary h3{font-size:clamp(1rem,1.5vw,1.16rem)}
 .case-kicker{font-size:.62rem;letter-spacing:.14em}
+
+/* Every closed card is the same height. Pinning the individual parts to a fixed
+   number of lines does not survive translation - one Russian metric label runs
+   to three lines where the English is one - so the card itself carries the
+   height and the metric block is pushed to the bottom of it. Whatever the text
+   does, the tops line up, the numbers line up, and the links line up. */
+.case summary{min-height:var(--case-h,0px)}
+.case .delta{margin-top:auto;padding-top:10px}
+.cases{--case-h:352px}
+@media(max-width:1080px){.cases{--case-h:300px}}
+@media(max-width:720px){.cases{--case-h:320px}}
+/* 360px and below is a separate case: the columns are narrow enough that a
+   couple of Spanish and German labels take an extra line. */
+@media(max-width:360px){.cases{--case-h:348px}}
+/* On the narrowest phones the metric label was the one thing still running to a
+   third line and dragging two cards taller than the rest; a touch less tracking
+   keeps it to two and lets one height cover 320px upwards. */
+@media(max-width:520px){.case .delta-cap{letter-spacing:.1em}}
 @media(prefers-reduced-motion:reduce){
   .case{opacity:1;transform:none;transition:none}
 }
