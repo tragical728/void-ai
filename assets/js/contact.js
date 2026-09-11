@@ -6,7 +6,14 @@
   var form = document.getElementById('contact-form');
   if(!form) return;
 
+  /* Куда уходит форма, решает assets/js/config.js. Одна строка там
+     переводит приём заявок с чужого сервиса на собственный обработчик. */
+  var CFG = window.VOID_CONFIG || {};
+  if(CFG.formEndpoint) form.setAttribute('action', CFG.formEndpoint);
+
   var err  = document.getElementById('form-err');
+  var cerr = document.getElementById('form-consent-err');
+  var box  = document.getElementById('consent');
   var fail = document.getElementById('form-fail');
   var sel  = document.getElementById('service');
   var btn  = form.querySelector('button[type=submit]');
@@ -33,12 +40,17 @@
   form.addEventListener('submit', function(e){
     if(!form.checkValidity()){
       e.preventDefault();
-      say(err, true);
+      /* если единственное незаполненное это галочка согласия, показываем
+         про неё, а не общее «заполните обязательные поля» */
+      var onlyConsent = !!(box && !box.checked &&
+        !form.querySelector('input:invalid:not([type=checkbox]), textarea:invalid, select:invalid'));
+      say(cerr, onlyConsent);
+      say(err, !onlyConsent);
       var first = form.querySelector(':invalid');
       if(first) first.focus();
       return;
     }
-    say(err, false);
+    say(err, false); say(cerr, false);
 
     /* no fetch (very old browser): let the native POST happen */
     if(!window.fetch || !window.URLSearchParams) return;
@@ -47,12 +59,13 @@
     say(fail, false);
     busy(true);
 
-    fetch('https://formsubmit.co/ajax/bensteeler82@gmail.com', {
+    fetch(CFG.formEndpointAjax || form.getAttribute('action'), {
       method: 'POST',
       headers: {'Accept': 'application/json'},
       body: new FormData(form)
     }).then(function(res){
       if(!res.ok) throw new Error(res.status);
+      if(window.VOID_GOAL) window.VOID_GOAL('form_sent');
       window.location.href = 'thanks.html';
     }).catch(function(){
       busy(false);

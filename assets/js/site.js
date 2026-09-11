@@ -35,6 +35,24 @@
       var hk = html[j].getAttribute('data-ih');
       if(dict[hk] != null) html[j].innerHTML = dict[hk];
     }
+    /* заголовок вкладки и описание для поиска тоже переводятся: без этого
+       русская страница уходит в выдачу с английским title */
+    var page = document.documentElement.getAttribute('data-page');
+    if(page){
+      var ttl = dict['t_' + page], dsc = dict['d_' + page];
+      if(ttl){
+        document.title = ttl;
+        var og = document.querySelector('meta[property="og:title"]');
+        if(og) og.setAttribute('content', ttl);
+      }
+      if(dsc){
+        var md = document.querySelector('meta[name=description]');
+        if(md) md.setAttribute('content', dsc);
+        var od = document.querySelector('meta[property="og:description"]');
+        if(od) od.setAttribute('content', dsc);
+      }
+    }
+
     var sel = document.getElementById('lang');
     if(sel && sel.value !== code) sel.value = code;
     store('void-lang', code);

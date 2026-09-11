@@ -2,6 +2,7 @@
    Keys match the data-i / data-ih attributes in the markup. */
 window.I18N = {};
 window.I18N.en = {
+ctConsent:"I agree to the processing of my personal data",ctConsentLink:"Privacy policy",ctConsentErr:"Please confirm you agree to the processing of your personal data.",footPrivacy:"Privacy policy",t_home:"VOID 28 - AI agents, bots and landing pages in 28 days",d_home:"VOID 28 builds AI agents, Telegram bots and mini-apps, landing pages and the lead strategy behind them. Fixed scope, fixed price, first result on day 28.",t_contact:"Contact - VOID 28",d_contact:"Tell us where the bottleneck is. Reply in under 24 hours, a 30-minute call, and a written plan with a 28-day schedule.",t_thanks:"Thank you - VOID 28",d_thanks:"Your message reached us. We reply in under 24 hours.",
 nav1:"What we build",nav2:"The leak",nav3:"Cases",nav4:"Process",nav5:"The maths",navcta:"Contact",
 heroEyebrow:"AUTOMATION  MARKETING  DEVELOPMENT",
 heroTitle:"28 days<br>to the first result",
@@ -78,6 +79,7 @@ footRights:"All rights reserved."
 };
 
 window.I18N.ru = {
+ctConsent:"Я согласен на обработку персональных данных",ctConsentLink:"Политика конфиденциальности",ctConsentErr:"Отметьте согласие на обработку персональных данных.",footPrivacy:"Политика конфиденциальности",t_home:"VOID 28 - ИИ-агенты, боты и посадочные страницы за 28 дней",d_home:"VOID 28 строит ИИ-агентов, Telegram-ботов и мини-приложения, посадочные страницы и стратегию привлечения за ними. Фиксированный объём, фиксированная цена, первый результат на 28-й день.",t_contact:"Контакты - VOID 28",d_contact:"Расскажите, где у вас теряются обращения. Ответ меньше чем за 24 часа, разговор на 30 минут и письменный план на 28 дней.",t_thanks:"Спасибо - VOID 28",d_thanks:"Сообщение дошло. Отвечаем меньше чем за 24 часа.",
 nav1:"Что мы делаем",nav2:"Утечка",nav3:"Кейсы",nav4:"Процесс",nav5:"Расчёт",navcta:"Связаться",
 heroEyebrow:"АВТОМАТИЗАЦИЯ  МАРКЕТИНГ  РАЗРАБОТКА",
 heroTitle:"28 дней<br>до первого результата",
@@ -154,6 +156,7 @@ footRights:"Все права защищены."
 };
 
 window.I18N.es = {
+ctConsent:"Acepto el tratamiento de mis datos personales",ctConsentLink:"Política de privacidad",ctConsentErr:"Confirma que aceptas el tratamiento de tus datos personales.",footPrivacy:"Política de privacidad",t_home:"VOID 28 - agentes de IA, bots y landing pages en 28 días",d_home:"VOID 28 construye agentes de IA, bots y mini-apps de Telegram, landing pages y la estrategia de captación detrás de ellas. Alcance fijo, precio fijo, primer resultado el día 28.",t_contact:"Contacto - VOID 28",d_contact:"Cuéntanos dónde está el cuello de botella. Respuesta en menos de 24 horas, una llamada de 30 minutos y un plan escrito a 28 días.",t_thanks:"Gracias - VOID 28",d_thanks:"Tu mensaje ha llegado. Respondemos en menos de 24 horas.",
 nav1:"Qué construimos",nav2:"La fuga",nav3:"Casos",nav4:"Proceso",nav5:"Los números",navcta:"Contacto",
 heroEyebrow:"AUTOMATIZACIÓN  MARKETING  DESARROLLO",
 heroTitle:"28 días<br>hasta el primer resultado",
@@ -230,6 +233,7 @@ footRights:"Todos los derechos reservados."
 };
 
 window.I18N.de = {
+ctConsent:"Ich stimme der Verarbeitung meiner personenbezogenen Daten zu",ctConsentLink:"Datenschutzerklärung",ctConsentErr:"Bitte bestätigen Sie die Einwilligung zur Datenverarbeitung.",footPrivacy:"Datenschutz",t_home:"VOID 28 - KI-Agenten, Bots und Landingpages in 28 Tagen",d_home:"VOID 28 baut KI-Agenten, Telegram-Bots und Mini-Apps, Landingpages und die Lead-Strategie dahinter. Fester Umfang, fester Preis, erstes Ergebnis an Tag 28.",t_contact:"Kontakt - VOID 28",d_contact:"Sagen Sie uns, wo es klemmt. Antwort in unter 24 Stunden, ein 30-minütiges Gespräch und ein schriftlicher Plan über 28 Tage.",t_thanks:"Danke - VOID 28",d_thanks:"Ihre Nachricht ist angekommen. Wir antworten in unter 24 Stunden.",
 nav1:"Was wir bauen",nav2:"Das Leck",nav3:"Fälle",nav4:"Ablauf",nav5:"Die Rechnung",navcta:"Kontakt",
 heroEyebrow:"AUTOMATISIERUNG  MARKETING  ENTWICKLUNG",
 heroTitle:"28 Tage<br>bis zum ersten Ergebnis",
@@ -306,6 +310,7 @@ footRights:"Alle Rechte vorbehalten."
 };
 
 window.I18N.zh = {
+ctConsent:"我同意处理我的个人数据",ctConsentLink:"隐私政策",ctConsentErr:"请确认同意处理您的个人数据。",footPrivacy:"隐私政策",t_home:"VOID 28 - 28 天交付 AI 智能体、机器人与落地页",d_home:"VOID 28 构建 AI 智能体、Telegram 机器人与小程序、落地页，以及背后的获客策略。范围固定，价格固定，第 28 天见到第一个结果。",t_contact:"联系我们 - VOID 28",d_contact:"告诉我们瓶颈在哪里。24 小时内回复，30 分钟通话，以及一份 28 天的书面计划。",t_thanks:"感谢 - VOID 28",d_thanks:"您的留言已送达，我们会在 24 小时内回复。",
 nav1:"我们做什么",nav2:"流失",nav3:"案例",nav4:"流程",nav5:"算一笔账",navcta:"联系我们",
 heroEyebrow:"自动化  市场增长  开发",
 heroTitle:"28 天<br>见到第一个结果",

@@ -80,3 +80,24 @@
 @media(max-width:560px){
   .nav .ghost{display:none}
 }
+
+/* ---------- consent ----------
+   Согласие на обработку данных. Галочка рисуется своя: системная в тёмной
+   теме выглядит инородно, а размер попадания у неё меньше рекомендованных
+   24 пикселей. */
+.consent{display:flex;align-items:flex-start;gap:11px;margin-top:-4px}
+.consent input{appearance:none;-webkit-appearance:none;flex:0 0 auto;
+  width:18px;height:18px;margin:1px 0 0;cursor:pointer;
+  background:transparent;border:1px solid var(--line-strong);border-radius:2px;
+  transition:border-color .2s,background .2s}
+.consent input:hover{border-color:var(--accent)}
+.consent input:focus-visible{outline:none;border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(206,222,240,.12)}
+.consent input:checked{border-color:var(--accent);
+  background-image:linear-gradient(45deg,transparent 46%,var(--accent) 46%,var(--accent) 54%,transparent 54%),
+                   linear-gradient(-45deg,transparent 46%,var(--accent) 46%,var(--accent) 54%,transparent 54%);
+  background-size:12px 12px;background-position:center;background-repeat:no-repeat}
+.consent label{color:var(--faint);font-size:.82rem;line-height:1.6;cursor:pointer}
+.consent a{color:var(--muted);text-decoration:none;
+  border-bottom:1px solid var(--line-strong);transition:color .2s,border-color .2s}
+.consent a:hover{color:var(--text);border-bottom-color:currentColor}
